@@ -18,14 +18,30 @@ export default {
         desc: '弹层确认框',
         url: prefix + 'modal',
     }, {
-        name: 'picker-view',
-        desc: '滚动选择器',
-        url: prefix + 'picker-view',
-    }, {
+		name: 'carousel',
+		desc: '轮播组件',
+		url: prefix + 'carousel',
+	}, {
+		name: 'tabs',
+		desc: '切换wrap',
+		url: prefix + 'tabs',
+	}, {
         name: 'popup',
         desc: '弹出层',
         url: prefix + 'popup',
     }, {
+		name: 'date-picker',
+		desc: '时间选择器',
+		url: prefix + 'date-picker',
+	}, {
+		name: 'date-picker-range',
+		desc: '时间区间选择器',
+		url: prefix + 'date-picker-range',
+	}, {
+		name: 'row、col',
+		desc: '布局组件',
+		url: prefix + 'layout',
+	}, {
         name: 'modal-select',
         desc: '弹层选择器',
         url: prefix + 'modal-select',
@@ -34,24 +50,8 @@ export default {
         desc: '滚动弹层选择器',
         url: prefix + 'picker-select',
     }, {
-        name: 'date-picker',
-        desc: '时间选择器',
-        url: prefix + 'date-picker',
-    }, {
-        name: 'date-picker-range',
-        desc: '时间区间选择器',
-        url: prefix + 'date-picker-range',
-    }, {
-        name: 'row、col',
-        desc: '布局组件',
-        url: prefix + 'layout',
-    }, {
-        name: 'carousel',
-        desc: '轮播组件',
-        url: prefix + 'carousel',
-    }, {
-        name: 'tabs',
-        desc: '切换wrap',
-        url: prefix + 'tabs',
-    }],
+		name: 'picker-view',
+		desc: '滚动选择器',
+		url: prefix + 'picker-view',
+	}],
 };
