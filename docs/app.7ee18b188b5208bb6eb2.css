@@ -1,8 +1,6 @@
 .home-demo {
   padding: 0 15px;
   background: #fff;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 .home-demo .demo-item {
   padding: 10px 0;
@@ -1320,4 +1318,8 @@ body,
 #appWrapper {
   background: #fff;
   height: 100%;
+}
+body {
+  max-width: 1200px;
+  margin: 0 auto;
 }
