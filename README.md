@@ -2,6 +2,10 @@
 
 # created by 杨玺
 
+### 站点展示（demo）
+
+https://func-star.github.io/mov-mobile/docs/
+
 ### 安装
 
 ```
