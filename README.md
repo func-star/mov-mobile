@@ -2,9 +2,11 @@
 
 # created by 杨玺
 
-### 站点展示（demo）
+### 站点展示（建议手机扫码体验）
 
 https://func-star.github.io/mov-mobile/
+
+![]('./qrcode.png')
 
 ### 安装
 
