@@ -249,20 +249,28 @@ body,
   width: 100%;
   height: 100%;
 }
+/* carousel */
+/* date-picker */
+/* date-picker-range */
+/* list-view */
+/* loading */
+/* modal */
+/* modal-select */
 /* picker-select */
+/* popup */
+/* tabs */
+/* toast */
 .mov-loading .mov-loading-con {
   width: 90px;
-  /* no2rem */
   height: 90px;
-  /* no2rem */
-  background: url(https://s10.mogucdn.com/p2/170228/116560387_5c7fa526b9e23a4g8efgc8db3g2bi_200x200.png) 50% no-repeat;
+  background: url('https://s10.mogucdn.com/p2/170228/116560387_5c7fa526b9e23a4g8efgc8db3g2bi_200x200.png') 50% no-repeat;
   background-size: 100%;
 }
 .mov-loading .mov-loading-con:after {
   content: "";
   display: block;
   height: 100%;
-  background: url(https://s10.mogucdn.com/p2/170228/116560387_5e6e30e3ld0blkjijkj196eeh0b3b_200x200.png) 50% no-repeat;
+  background: url('https://s10.mogucdn.com/p2/170228/116560387_5e6e30e3ld0blkjijkj196eeh0b3b_200x200.png') 50% no-repeat;
   background-size: 100%;
   -webkit-animation: mov-loading 1.05s infinite;
           animation: mov-loading 1.05s infinite;
@@ -312,29 +320,24 @@ body,
 .mov-toast .mov-toast-icon .error-img {
   width: 40px;
   height: 40px;
-  background-size: 40px 40px;
+  background-size: cover;
   margin: 3px auto 10px;
 }
 .mov-toast .mov-toast-icon .success-img {
-  background-image: url("https://s10.mogucdn.com/mlcdn/c45406/180205_89ff4d45g31c7a4cfk8j727b6adli_200x200.png_100x100.png");
+  background-image: url('https://s10.mogucdn.com/mlcdn/c45406/180205_89ff4d45g31c7a4cfk8j727b6adli_200x200.png_100x100.png');
 }
 .mov-toast .mov-toast-icon .error-img {
-  background-image: url("https://s10.mogucdn.com/mlcdn/c45406/180205_86g9c5249kljeljlbaki70g0i78ji_200x200.png_100x100.png");
+  background-image: url('https://s10.mogucdn.com/mlcdn/c45406/180205_86g9c5249kljeljlbaki70g0i78ji_200x200.png_100x100.png');
 }
 .mov-carousel-dots {
   bottom: 5px;
-  /* no2rem */
   left: 15px;
-  /* no2rem */
   width: auto;
 }
 .mov-carousel-dots .item {
   width: 8px;
-  /* no2rem */
   height: 8px;
-  /* no2rem */
   margin-right: 5px;
-  /* no2rem */
   border-radius: 50%;
   background-color: #fff;
 }
@@ -528,8 +531,8 @@ body,
 }
 .mov-popup.have-animate .mov-popup-con,
 .mov-popup.have-animate .mov-popup-mask {
-  -webkit-transition: all 0.4s ease 0s;
-  transition: all 0.4s ease 0s;
+  -webkit-transition: all 400ms ease 0s;
+  transition: all 400ms ease 0s;
 }
 .mov-popup.show-content .mov-popup-con {
   opacity: 1;
@@ -559,17 +562,13 @@ body,
 .mov-picker-view .mov-picker-view-wrap {
   width: 100%;
   height: 34px;
-  /* no2rem */
   text-align: center;
   position: relative;
 }
 .mov-picker-view .mov-picker-view-item {
   font-size: 14px;
-  /* no2rem */
   height: 34px;
-  /* no2rem */
   line-height: 34px;
-  /* no2rem */
 }
 .mov-picker-view .mov-picker-view-transition {
   -webkit-transition: -webkit-transform 0.4s ease-out;
@@ -583,18 +582,14 @@ body,
 }
 .mov-date-picker .mov-date-picker-header .item {
   font-size: 16px;
-  /* no2rem */
   height: 45px;
-  /* no2rem */
   padding: 0 16px;
-  /* no2rem */
   color: #ff5777;
 }
 .mov-date-picker .mov-date-picker-con {
   padding: 0 10px;
-  /* no2rem */
   height: 280px;
-  /* no2rem */
+  font-size: 14px;
 }
 .mov-date-picker-range .mov-date-picker-range-header {
   border-bottom: 1px solid #ececec;
@@ -608,6 +603,7 @@ body,
 .mov-date-picker-range .mov-date-picker-range-con {
   padding: 0 10px;
   height: 280px;
+  font-size: 14px;
   font-style: normal;
 }
 .mov-date-picker-range .mov-date-picker-range-con .year {
@@ -620,16 +616,13 @@ body,
 }
 .mov-scroll .pull-refresh {
   font-size: 13px;
-  /* no2rem */
   position: relative;
   left: 0;
   top: 0;
 }
 .mov-scroll .pull-refresh-icon {
   width: 65px;
-  /* no2rem */
   height: 15px;
-  /* no2rem */
   background: url(https://s10.mogucdn.com/mlcdn/c45406/180529_52b9f3gkk7k0b97ib2j095d74al3l_6500x30.png) 0 0 no-repeat;
   /* no2rem */
   background-size: 5000% 100%;
@@ -649,14 +642,11 @@ body,
 }
 .mov-scroll .load-more {
   padding: 12px;
-  /* no2rem */
 }
 .mov-scroll .load-more-icon {
   background: url("https://s10.mogucdn.com/mlcdn/c45406/180517_7le6117ia10b6eg8chd1hdike7gec_200x200.png_50x50.png") no-repeat center;
   height: 25px;
-  /* no2rem */
   width: 25px;
-  /* no2rem */
   background-size: cover;
   -webkit-animation: rotation 1.5s infinite linear;
           animation: rotation 1.5s infinite linear;
@@ -712,10 +702,9 @@ body,
   background: rgba(0, 0, 0, .7);
 }
 .mov-modal .mov-modal-content {
-  border-radius: 4px;
+  border-radius: 5px;
   padding: 15px 0 0 0;
   text-align: center;
-  font-size: 14px;
   width: 270px;
   margin-top: -100px;
   background-color: #fff;
@@ -723,7 +712,7 @@ body,
 .mov-modal .mov-modal-content .mov-modal-content-header {
   padding: 0 20px;
   font-size: 18px;
-  color: #000;
+  color: #333;
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -740,9 +729,6 @@ body,
 }
 .mov-modal .mov-modal-content .mov-modal-content-footer {
   height: 45px;
-}
-.mov-modal .mov-modal-content .mov-modal-content-footer .cancel,
-.mov-modal .mov-modal-content .mov-modal-content-footer .confirm {
   font-size: 16px;
 }
 .mov-modal .mov-modal-content .mov-modal-content-footer .cancel {
@@ -764,9 +750,6 @@ body,
   }
   .mov-modal .mov-modal-content .mov-modal-content-footer {
     height: 40px;
-  }
-  .mov-modal .mov-modal-content .mov-modal-content-footer .cancel,
-  .mov-modal .mov-modal-content .mov-modal-content-footer .confirm {
     font-size: 14px;
   }
 }
@@ -783,38 +766,26 @@ body,
   }
   .mov-modal .mov-modal-content .mov-modal-content-footer {
     height: 50px;
-  }
-  .mov-modal .mov-modal-content .mov-modal-content-footer .cancel,
-  .mov-modal .mov-modal-content .mov-modal-content-footer .confirm {
     font-size: 17px;
   }
 }
 .mov-modal-select .mov-modal-select-header {
   border-bottom: 1px solid #ececec;
-  /* no2rem */
 }
 .mov-modal-select .mov-modal-select-header .item {
   font-size: 16px;
-  /* no2rem */
   height: 45px;
-  /* no2rem */
   padding: 0 16px;
-  /* no2rem */
   color: #ff5777;
 }
 .mov-modal-select .mov-modal-select-con {
   max-height: 280px;
-  /* no2rem */
   min-height: 200px;
-  /* no2rem */
 }
 .mov-modal-select .mov-modal-select-item {
   height: 48px;
-  /* no2rem */
   font-size: 15px;
-  /* no2rem */
   padding: 0 40px 0 20px;
-  /* no2rem */
   color: #333;
   line-height: 1;
 }
@@ -824,22 +795,18 @@ body,
 .mov-modal-select .mov-modal-select-item.selected:after {
   content: '';
   display: block;
-  background: url("https://s10.mogucdn.com/mlcdn/c45406/180531_1446j5l280i4cl48h6abh954e6g9l_31x23.png") center no-repeat;
+  background: url('https://s10.mogucdn.com/mlcdn/c45406/180531_1446j5l280i4cl48h6abh954e6g9l_31x23.png') center no-repeat;
   width: 16px;
-  /* no2rem */
   height: 12px;
-  /* no2rem */
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   right: 20px;
-  /* no2rem */
   background-size: cover;
 }
 .mov-picker-select .mov-picker-select-header {
   border-bottom: 1px solid #ececec;
-  /* no2rem */
 }
 .mov-picker-select .mov-picker-select-header .item {
   font-size: 16px;
@@ -851,18 +818,13 @@ body,
   height: 280px;
 }
 .mov-tabs-header {
-  border-bottom: 1px solid #eee;
-  /* no2rem */
+  border-bottom: 1px solid #ececec;
   background-color: #fff;
 }
 .mov-tabs-header .item {
   border-bottom: 2px solid transparent;
-  /* no2rem */
   font-size: 15px;
-  /* no2rem */
   height: 45px;
-  /* no2rem */
-  font-weight: normal;
 }
 .mov-tabs-header .item.active {
   color: #ff5777;
@@ -870,44 +832,23 @@ body,
 .mov-tabs-header .index-mark {
   bottom: 0;
   left: 0;
-  -webkit-transition: -webkit-transform 0.4s ease-out;
-  transition: -webkit-transform 0.4s ease-out;
-  transition: transform 0.4s ease-out;
-  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;
+  -webkit-transition: -webkit-transform 300ms ease-out;
+  transition: -webkit-transform 300ms ease-out;
+  transition: transform 300ms ease-out;
+  transition: transform 300ms ease-out, -webkit-transform 300ms ease-out;
   padding: 0 20px;
 }
 .mov-tabs-header .index-mark:before {
   display: block;
   content: '';
   height: 2px;
-  /* no2rem */
-  background-color: #f46;
-}
-.mov-swiper-dots {
-  bottom: 5px;
-  /* no2rem */
-  left: 15px;
-  /* no2rem */
-  width: auto;
-}
-.mov-swiper-dots .item {
-  width: 8px;
-  /* no2rem */
-  height: 8px;
-  /* no2rem */
-  margin-right: 5px;
-  /* no2rem */
-  border-radius: 50%;
-  background-color: #fff;
-}
-.mov-swiper-dots .item.active {
   background-color: #ff5777;
 }
 .mov-swiper-transition {
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  transition: -webkit-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  -webkit-transition: -webkit-transform 300ms ease-out;
+  transition: -webkit-transform 300ms ease-out;
+  transition: transform 300ms ease-out;
+  transition: transform 300ms ease-out, -webkit-transform 300ms ease-out;
 }
 .mov-anim-common {
   will-change: transform;
