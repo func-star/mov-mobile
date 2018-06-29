@@ -1,0 +1,82 @@
+.mov-scroll {
+    .pull-refresh {
+        font-size: @listViewRefreshFontSize;
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+    .pull-refresh-icon {
+        width: 65px;
+        height: 15px;
+        background: url(https://s10.mogucdn.com/mlcdn/c45406/180529_52b9f3gkk7k0b97ib2j095d74al3l_6500x30.png) 0 0 no-repeat; /*no2rem*/
+        background-size: 5000% 100%;
+        &.animate {
+            animation: movListViewGif steps(49) 2s infinite both;
+        }
+
+    }
+    &.refresh, &.down {
+        .mov-scroll-inner {
+            transition-duration: @listViewAnimDuration;
+        }
+    }
+    &.touch {
+        .mov-scroll-inner {
+            transition: none;
+        }
+    }
+    .load-more {
+        padding: 12px;
+    }
+    .load-more-icon {
+        background: url("https://s10.mogucdn.com/mlcdn/c45406/180517_7le6117ia10b6eg8chd1hdike7gec_200x200.png_50x50.png") no-repeat center;
+        height: 25px;
+        width: 25px;
+        background-size: cover;
+        animation: rotation 1.5s infinite linear;
+    }
+}
+
+@keyframes movListViewGif {
+    from {
+        background-position: 0%;
+    }
+    to {
+        background-position: 100%;
+    }
+}
+
+@-webkit-keyframes movListViewGif {
+    from {
+        background-position: 0%;
+    }
+    to {
+        background-position: 100%;
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform-origin: 50% 50%;
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform-origin: 50% 50%;
+        transform: rotate(1turn)
+    }
+}
+
+@-webkit-keyframes rotation {
+    from {
+        transform-origin: 50% 50%;
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform-origin: 50% 50%;
+        transform: rotate(1turn)
+    }
+}
+
+

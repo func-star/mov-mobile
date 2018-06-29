@@ -1,0 +1,19 @@
+{
+	"presets": [
+		"es2015",
+		"stage-0"
+	],
+	"plugins": [
+		[
+			"import",
+			[
+				{
+					"libraryName": "mov",
+					"libraryDirectory": "libsrc"
+				}
+			]
+		],
+		"transform-object-assign"
+	],
+}
+
