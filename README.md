@@ -4,7 +4,7 @@
 
 ### 站点展示（demo）
 
-https://func-star.github.io/mov-mobile/docs/
+https://func-star.github.io/mov-mobile/
 
 ### 安装
 
