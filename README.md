@@ -6,7 +6,7 @@
 
 https://func-star.github.io/mov-mobile/
 
-![]('./qrcode.png')
+![Image text](./qrcode.png)
 
 ### 安装
 
