@@ -5,7 +5,7 @@
 	"description": "vue H5 UI组件库",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/func-star/mov-mobile"
+		"url": "git+https://github.com/func-star/mov-mobile"
 	},
 	"files": [
 		"lib"
