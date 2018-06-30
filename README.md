@@ -33,11 +33,6 @@ npm i mov-mobile --save
     import { Loading } from 'mov';
 
     export default {
-
-        mounted () {
-            // this.$loading.hide();
-        },
-
         methods: {
             show () {
                 Loading.show();
@@ -86,11 +81,6 @@ npm i mov-mobile --save
     import { Tool } from 'mov';
 
     export default {
-
-        mounted () {
-            this.$loading.hide();
-        },
-
         methods: {
             info () {
                 Tool.info('默认');
@@ -181,11 +171,6 @@ npm i mov-mobile --save
         components: {
             Modal,
         },
-
-        mounted () {
-            this.$loading.hide();
-        },
-
         data () {
             return {
                 isOpen: false,
@@ -275,7 +260,7 @@ npm i mov-mobile --save
 #### DEMO
 
 ```
-// 提供H5容器手势库及回调参数，有问题@放克
+// 提供H5容器手势库及回调参数
 <template>
     <hammer class="mov-picker-view-mask" :panmove="this.panmove" :panend="this.panend" :panstart="this.panstart"></hammer>
 </template>
@@ -301,7 +286,7 @@ npm i mov-mobile --save
 #### DEMO
 
 ```
-// 提供全局广播，消息监听，分发，使用方法@放克。
+// 提供全局广播，消息监听，分发，使用方法请联系作者或者参考demo
 
 ```
 
@@ -353,9 +338,6 @@ export default {
     },
 
     methods: {
-        init() {
-
-        },
         bottom() {
             this.placement = 'bottom';
             this.animate = true;
@@ -379,13 +361,6 @@ export default {
         toggle() {
             this.visible = !this.visible;
         }
-    },
-
-    created() {},
-
-    mounted() {
-        this.init();
-        this.$loading.hide();
     },
 };
 
@@ -434,9 +409,6 @@ export default {
     },
 
     methods: {
-        init() {
-
-        },
         getValue(val) {
             console.log(val);
         }
@@ -535,10 +507,6 @@ ModalSelect.config(options)
                 });
             },
         },
-
-        mounted () {
-            this.$loading.hide();
-        },
     };
 
 </script>
@@ -635,8 +603,6 @@ export default {
             };
         },
 
-        created () {},
-
         methods: {
             open () {
                 let start = Util.moment(this.start).valueOf();
@@ -653,10 +619,6 @@ export default {
                     },
                 });
             },
-        },
-
-        mounted () {
-            this.$loading.hide();
         },
     };
 
@@ -703,7 +665,7 @@ import { ListView } from 'mov';
 
 export default {
     components: {
-        'list-view': ListView,
+        ListView,
     },
 
     data() {
@@ -716,7 +678,6 @@ export default {
 
     mounted() {
         this.init();
-        this.$loading.hide();
     },
 
     methods: {
@@ -768,14 +729,12 @@ export default {
 #### DEMO
 
 ```
-// 在<body>节点下动态创建子节点，有问题请@放克
+// 在<body>节点下动态创建子节点，有问题请联系作者
 <template>
-    <mount-root :visible="show">
-        <div class="mov-toast flex-center pos-f pos-f-full" v-show="show">
-            <div class="mov-toast-content pos-f">
-                {{message}}
-            </div>
-        </div>
+    <mount-root :visible="show" class="mov-toast flex-center pos-f pos-f-full">
+		<div class="mov-toast-content pos-f">
+			{{message}}
+		</div>
     </mount-root>
 </template>
 <script>
@@ -856,10 +815,6 @@ export default {
         components: {
             Row,
             Column,
-        },
-
-        mounted () {
-            this.$loading.hide();
         },
     };
 
@@ -964,10 +919,6 @@ export default {
                 name: 'fff',
             };
         },
-
-        mounted () {
-            this.$loading.hide();
-        },
         methods: {
             afterChange (index) {
                 console.log(index);
@@ -1043,10 +994,6 @@ export default {
                     {title: '3 Tab'},
                 ],
             };
-        },
-
-        mounted () {
-            this.$loading.hide();
         },
         methods: {
             afterChange (index) {
