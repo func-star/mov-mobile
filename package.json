@@ -7,7 +7,6 @@
 		"mov-mobile",
 		"mobile"
 	],
-    "license": "MIT",
 	"description": "vue H5 UI组件库",
 	"repository": {
 		"type": "git",
