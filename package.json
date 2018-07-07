@@ -1,7 +1,13 @@
 {
 	"name": "mov-mobile",
-	"version": "0.0.3",
-	"author": "杨玺",
+	"version": "0.0.4",
+	"author": "yangxi",
+	"keywords": [
+		"mov",
+		"mov-mobile",
+		"mobile"
+	],
+    "license": "MIT",
 	"description": "vue H5 UI组件库",
 	"repository": {
 		"type": "git",
