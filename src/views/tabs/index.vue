@@ -1,6 +1,6 @@
 <template>
 	<div class="full">
-		<tabs :tabs="tabs" ref="tabs" :defaultIndex="2" :afterChange="afterChange" class="tabs-pannel full">
+		<tabs :tabs="tabs" ref="tabs" :defaultIndex="0" :afterChange="afterChange" class="tabs-pannel full">
 			<tabs-item>
 				<div class="h-full item">
 					<button style="height: 50px" @click="exchange(1)">切换wrap</button>
@@ -8,6 +8,11 @@
 			</tabs-item>
 			<tabs-item>
 				<list-view></list-view>
+			</tabs-item>
+			<tabs-item>
+				<div class="h-full item">
+					<button style="height: 50px" @click="exchange(1)">切换wrap</button>
+				</div>
 			</tabs-item>
 			<tabs-item>
 				<div class="h-full item">
@@ -37,6 +42,7 @@
 					{title: '1 Tab'},
 					{title: '2 Tab'},
 					{title: '3 Tab'},
+					{title: '4 Tab'},
 				],
 			};
 		},
