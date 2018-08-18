@@ -1,8 +1,5 @@
 # vue H5 UI组件库
 
-# created by 杨玺
-微信：yx12032331
-
 ### 站点展示（建议手机扫码体验）
 
 https://func-star.github.io/mov-mobile/
@@ -1011,3 +1008,9 @@ export default {
 
 
 ```
+
+
+// TODO
+
+* ListView 修改成hammer
+* DatePciker和DatePickerRange优化

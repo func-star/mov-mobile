@@ -55,6 +55,9 @@ config.plugins = (config.plugins || []).concat([
 	new CopyWebpackPlugin([{
 		from: 'src/static',
 	}]),
+	new CopyWebpackPlugin([{
+		from: 'CNAME',
+	}]),
 	
 	new HtmlWebpackPlugin({
 		filename: '../assets/index.html',

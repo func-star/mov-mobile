@@ -1,6 +1,6 @@
 {
 	"name": "mov-mobile",
-	"version": "0.0.4",
+	"version": "0.1.0",
 	"author": "yangxi",
 	"keywords": [
 		"mov",
@@ -49,14 +49,11 @@
 		"style-loader": "^0.19.0",
 		"webpack": "^3.8.1",
 		"webpack-bundle-analyzer": "^2.10.0",
-		"webpack-dev-server": "^2.9.7"
-	},
-	"dependencies": {
+		"webpack-dev-server": "^2.9.7",
 		"axios": "^0.17.1",
 		"es6-promise": "3.2.1",
 		"fastclick": "1.0.6",
 		"uglifyjs-webpack-plugin": "^0.4.6",
-		"vue": "2.5.16",
 		"moment": "2.19.4",
 		"vue-template-compiler": "^2.5.16"
 	}
