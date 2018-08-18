@@ -4,8 +4,9 @@
 	"author": "yangxi",
 	"keywords": [
 		"mov",
-		"mov-mobile",
-		"mobile"
+		"monajs",
+		"mona",
+		"mov-mobile"
 	],
 	"description": "vue H5 UI组件库",
 	"repository": {
