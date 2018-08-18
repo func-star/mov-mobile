@@ -8,7 +8,7 @@
 		"mona",
 		"mov-mobile"
 	],
-	"description": "vue H5 UI组件库",
+	"description": "Mov - 让你感到幸福的 Vue 组件库",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/func-star/mov-mobile"
