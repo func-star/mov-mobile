@@ -9,11 +9,12 @@
 			[
 				{
 					"libraryName": "mov",
-					"libraryDirectory": "libsrc"
+					"libraryDirectory": "libsrc",
+					"style": true
 				}
 			]
 		],
 		"transform-object-assign"
-	],
+	]
 }
 
