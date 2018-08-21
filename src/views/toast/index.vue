@@ -1,41 +1,65 @@
 <template>
-	<div class="flex-center">
-		<div>
-			<div class="toast-item flex-center" @click="info">默认</div>
-			<div class="toast-item flex-center" @click="error">error</div>
-			<div class="toast-item flex-center" @click="success">success</div>
-			<div class="toast-item flex-center" @click="callback">回调</div>
-		</div>
-	</div>
+	<demo-page>
+		<demo-section title="基础用法" intro="demo1">
+			<demo-button text="显示Toast" @click.native="demo1"></demo-button>
+		</demo-section>
+		<demo-section title="基础用法" intro="demo2">
+			<demo-button text="显示Toast" @click.native="demo2"></demo-button>
+		</demo-section>
+	</demo-page>
 </template>
-<script type="text/javascript">
-	import { Tool } from 'mov';
-	import './index.less';
+
+
+<script type="text/ecmascript-6">
+	import DemoPage from 'components/demo-page';
+	import DemoSection from 'components/demo-section';
+	import DemoButton from 'components/demo-button';
+	import {Toast} from 'mov';
 
 	export default {
+		name: 'Toast',
+
+		components: {
+			DemoPage,
+			DemoSection,
+			DemoButton,
+		},
+
+		props: {},
+
+		data() {
+			return {};
+		},
+
+		computed: {},
+
+		watch: {},
+
 		methods: {
-			info () {
-				Tool.info('默认');
+			demo1() {
+				Toast.show('toast');
 			},
-			error () {
-				Tool.error({
-					message: '请求失败',
-					duration: 1000,
-				});
-			},
-			success () {
-				Tool.success();
-			},
-			callback () {
-				Tool.success({
-					message: 'call',
-					onHide () {
-						Tool.info('toast关闭时的回调');
-					},
+			demo2() {
+				Toast.show({
+					message: 'asd', duration: 1500, onHide: () => {
+						alert(1);
+					}, type: 'success',
 				});
 			},
 		},
 
-	};
+		filters: {},
 
+		created() {
+		},
+
+		mounted() {
+		},
+	};
 </script>
+
+
+<style lang="less" scoped>
+
+</style>
+
