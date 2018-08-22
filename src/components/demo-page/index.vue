@@ -1,8 +1,8 @@
 <template>
 	<div class="demo-page">
 		<header class="demo-info flex f-dir-top f-cross-center">
-			<p class="title">Toast - 提示</p>
-			<p class="intro">提示</p>
+			<p class="title">{{title}}</p>
+			<p class="intro">{{intro}}</p>
 		</header>
 		<main>
 			<slot></slot>
@@ -14,6 +14,16 @@
 <script type="text/ecmascript-6">
 	export default {
 		name: 'DemoPage',
+		props: {
+			title: {
+				type: String,
+				default: '组件'
+			},
+			intro: {
+				type: String,
+				default: '描述'
+			}
+		}
 	};
 </script>
 

@@ -1,10 +1,19 @@
 <template>
-	<demo-page>
+	<demo-page title="Toast - 提示" intro="提示">
 		<demo-section title="基础用法" intro="demo1">
 			<demo-button text="显示Toast" @click.native="demo1"></demo-button>
 		</demo-section>
-		<demo-section title="基础用法" intro="demo2">
+		<demo-section title="成功提示" intro="demo2">
 			<demo-button text="显示Toast" @click.native="demo2"></demo-button>
+		</demo-section>
+		<demo-section title="失败提示" intro="demo3">
+			<demo-button text="显示Toast" @click.native="demo3"></demo-button>
+		</demo-section>
+		<demo-section title="展示3s" intro="demo4">
+			<demo-button text="显示Toast" @click.native="demo4"></demo-button>
+		</demo-section>
+		<demo-section title="带回调" intro="demo5">
+			<demo-button text="显示Toast" @click.native="demo5"></demo-button>
 		</demo-section>
 	</demo-page>
 </template>
@@ -37,13 +46,30 @@
 
 		methods: {
 			demo1() {
-				Toast.show('toast');
+				Toast.show('普通提示');
 			},
 			demo2() {
 				Toast.show({
-					message: 'asd', duration: 1500, onHide: () => {
-						alert(1);
-					}, type: 'success',
+					message: '成功提示', type: 'success',
+				});
+			},
+			demo3() {
+				Toast.show({
+					message: '失败提示', type: 'error',
+				});
+			},
+			demo4() {
+				Toast.show({
+					message: '提示3s', duration: 3000,
+				});
+			},
+			demo5() {
+				Toast.show({
+					message: '带回调的提示', onHide() {
+						Toast.show({
+							message: '回调', type: 'error',
+						});
+					},
 				});
 			},
 		},
