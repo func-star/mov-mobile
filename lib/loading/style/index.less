@@ -1,0 +1,36 @@
+@import "../../style/common";
+
+.mov-loading {
+	.mov-loading-con {
+		width: @loadingWidth;
+		height: @loadingHeight;
+		background: url(@loadingBg) 50% no-repeat;
+		background-size: 100%;
+		&:after {
+			content: "";
+			display: block;
+			height: 100%;
+			background: url(@loadingBgAnim) 50% no-repeat;
+			background-size: 100%;
+			animation: mov-loading 1.05s infinite;
+		}
+	}
+}
+
+@keyframes mov-loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes mov-loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

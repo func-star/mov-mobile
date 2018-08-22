@@ -1,4 +1,4 @@
-import Events from '../events';
+import Events from 'mona-events';
 
 class TabsCtrl extends Events {
     itemKeyList = []; // 控制tabsItem的加载

@@ -1,0 +1,89 @@
+@import "../../style/common";
+
+.mov-modal {
+	z-index: @modalZIndex;
+	&.mask {
+		background: @modalMaskBg;
+	}
+	.mov-modal-content {
+		border-radius: @modalConBorderRadius;
+		padding: 15px 0 0 0;
+		text-align: center;
+		width: @modalConWidth;
+		margin-top: -100px;
+		background-color: @modalConBgColor;
+		.mov-modal-content-header {
+			padding: 0 20px;
+			font-size: @modalHeaderFontSize;
+			color: @modalHeaderColor;
+			margin-bottom: 10px;
+			margin-top: 10px;
+		}
+		.mov-modal-content-content {
+			padding: 0 20px 15px;
+			font-size: @modalConFontSize;
+			line-height: 1.33;
+			color: @modalConColor;
+			border-bottom: 1px solid @modalConBorderColor;
+			&.no-title {
+				color: @modalConNoTitle;
+				padding-top: 10px;
+			}
+		}
+		.mov-modal-content-footer {
+			height: @modalFooterHeight;
+			font-size: @modalFooterFontSize;
+			.cancel {
+				color: #666;
+				border-right: 1px solid @border-color;
+			}
+			.confirm {
+				color: @primary;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 320px) {
+	//5s
+	.mov-modal {
+		.mov-modal-content {
+			width: @modalConWidthSm;
+		}
+		.mov-modal-content {
+			.mov-modal-content-header {
+				font-size: @modalHeaderFontSizeSm;
+			}
+			.mov-modal-content-content {
+				font-size: @modalConFontSizeSm;
+			}
+			.mov-modal-content-footer {
+				height: @modalFooterHeightSm;
+				font-size: @modalFooterFontSizeSm;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 414px) {
+	//6p
+	.mov-modal {
+		.mov-modal-content {
+			width: @modalConWidthLg;
+		}
+		.mov-modal-content {
+			.mov-modal-content-content {
+				padding: 0 20px 18px;
+				font-size: @modalConFontSizeLg;
+				&.no-title {
+					padding-top: 15px;
+				}
+			}
+			.mov-modal-content-footer {
+				height: @modalFooterHeightLg;
+				font-size: @modalFooterFontSizeLg;
+			}
+		}
+	}
+}
+
