@@ -1,5 +1,5 @@
 <template>
-    <div class="mov-date-picker-range-con d-f">
+    <div class="mona-date-picker-range-con d-f">
         <div class="year h-full" v-if="options.yearVisible">
             <picker-view :source="years" :defaultValue="year" :onChange="this.getVal.bind(this, 'year')"></picker-view>
         </div>

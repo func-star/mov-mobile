@@ -1,11 +1,11 @@
 <template>
 	<mount-root :visible="show">
-		<div class="mov-toast flex-center pos-f pos-f-full mov-anim-common">
-			<div class="mov-toast-content pos-f" :class="type">
-				<div class="mov-toast-icon" v-if="type === 'success'">
+		<div class="mona-toast flex-center pos-f pos-f-full mona-anim-common">
+			<div class="mona-toast-content pos-f" :class="type">
+				<div class="mona-toast-icon" v-if="type === 'success'">
 					<div class="success-img"></div>
 				</div>
-				<div class="mov-toast-icon" v-if="type === 'error'">
+				<div class="mona-toast-icon" v-if="type === 'error'">
 					<div class="error-img"></div>
 				</div>
 				{{message}}

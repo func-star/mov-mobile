@@ -1,5 +1,5 @@
 <template lang="html">
-    <div :class="'mov-col-' + span" :style="colSty">
+    <div :class="'mona-col-' + span" :style="colSty">
         <slot></slot>
     </div>
 </template>

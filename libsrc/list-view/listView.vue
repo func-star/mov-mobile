@@ -1,6 +1,6 @@
 <template lang="html">
-    <div class="mov-scroll o-a pos-a pos-a-full" id="mov-scroll" :class="{'down':(state===0),'up':(state===1),'refresh':(state===2),'touch':touching}" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd($event)" @scroll="(onInfinite || infiniteLoading) ? onScroll($event) : undefined">
-        <section class="mov-scroll-inner w-full pos-a" ref="movScrollInner" :style="innerSty">
+    <div class="mona-scroll o-a pos-a pos-a-full" id="mona-scroll" :class="{'down':(state===0),'up':(state===1),'refresh':(state===2),'touch':touching}" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd($event)" @scroll="(onInfinite || infiniteLoading) ? onScroll($event) : undefined">
+        <section class="mona-scroll-inner w-full pos-a" ref="movScrollInner" :style="innerSty">
             <header class="pull-refresh w-full flex-center" :style="pullRefreshSty">
                 <slot name="pull-refresh">
                    <div class="pull-refresh-icon" :class="{'animate': !touching}"></div>
@@ -156,7 +156,7 @@ export default {
             clearTimeout(this.timer);
             this.timer = setTimeout(() => {
                 let outerHeight = this.$el.clientHeight;
-                let innerHeight = this.$el.querySelector('.mov-scroll-inner').clientHeight;
+                let innerHeight = this.$el.querySelector('.mona-scroll-inner').clientHeight;
                 let scrollTop = this.$el.scrollTop;
                 let ptrHeight = this.onRefresh ? this.$el.querySelector('.pull-refresh').clientHeight : 0;
                 let infiniteHeight = this.$el.querySelector('.load-more').clientHeight;

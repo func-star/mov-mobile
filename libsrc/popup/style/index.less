@@ -1,17 +1,17 @@
 @import "../../style/common";
 
-.mov-popup {
+.mona-popup {
 	z-index: 300;
-	.mov-popup-mask {
+	.mona-popup-mask {
 		background-color: rgba(0, 0, 0, 0.7);
 		opacity: 0;
 	}
-	.mov-popup-con {
+	.mona-popup-con {
 		background-color: #fff;
 		z-index: 10;
 	}
 	&.bottom {
-		.mov-popup-con {
+		.mona-popup-con {
 			left: 0;
 			right: 0;
 			bottom: 0;
@@ -20,7 +20,7 @@
 		}
 	}
 	&.top {
-		.mov-popup-con {
+		.mona-popup-con {
 			top: 0;
 			left: 0;
 			right: 0;
@@ -29,7 +29,7 @@
 		}
 	}
 	&.right {
-		.mov-popup-con {
+		.mona-popup-con {
 			top: 0;
 			bottom: 0;
 			right: 0;
@@ -38,16 +38,16 @@
 		}
 	}
 	&.have-animate {
-		.mov-popup-con, .mov-popup-mask {
+		.mona-popup-con, .mona-popup-mask {
 			transition: all @popupAnimDuration ease 0s;
 		}
 	}
 	&.show-content {
-		.mov-popup-con {
+		.mona-popup-con {
 			opacity: 1;
 			transform: none;
 		}
-		.mov-popup-mask {
+		.mona-popup-mask {
 			opacity: 1;
 		}
 	}

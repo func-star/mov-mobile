@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="mov-swiper-item pull-left h-full pos-r" :style="itemSty">
+    <div class="mona-swiper-item pull-left h-full pos-r" :style="itemSty">
         <slot v-if="isShow"></slot>
     </div>
 </template>

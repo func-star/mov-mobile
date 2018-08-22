@@ -1,5 +1,5 @@
 <template>
-    <div ref="movHammer" class="mov-hammer full" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd($event)" @touchcancel="touchcancel($event)" @scroll="scroll($event)">
+    <div ref="movHammer" class="mona-hammer full" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd($event)" @touchcancel="touchcancel($event)" @scroll="scroll($event)">
         <slot></slot>
     </div>
 </template>

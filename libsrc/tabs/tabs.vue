@@ -1,13 +1,13 @@
 <template lang="html">
-    <div class="mov-tabs full" ref="movTabs">
-        <div class="mov-tabs-header d-f pos-r" v-if="tabs && tabs.length>0">
+    <div class="mona-tabs full" ref="movTabs">
+        <div class="mona-tabs-header d-f pos-r" v-if="tabs && tabs.length>0">
             <div class="item flex-1 flex-center"
                 :class="{'active': currentIndex === index}"
                 v-for="(item, index) in tabs"
                 @click="changeIndex(index)">{{item.title}}</div>
             <div class="pos-a index-mark" :style="indexMarkSty"></div>
         </div>
-        <swiper class="mov-tabs-content full"
+        <swiper class="mona-tabs-content full"
             :style="swiperSty"
             ref="tabsSwiper"
             :canPan="canPan"

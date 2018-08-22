@@ -1,10 +1,10 @@
 <template lang="html">
     <hammer :panmove="panmove" :panend="panend" :panstart="panstart">
-        <div class="mov-carousel full pos-r o-h" ref="movCarousel">
+        <div class="mona-carousel full pos-r o-h" ref="movCarousel">
             <div class="content h-full o-h" :style="contentSty" ref="movCarouselContent">
                 <slot></slot>
             </div>
-            <div v-if="dots && originEmptyList.length>1" class="mov-carousel-dots pos-a flex-center w-full">
+            <div v-if="dots && originEmptyList.length>1" class="mona-carousel-dots pos-a flex-center w-full">
                 <div class="item"
                      v-for="(item, index) in originEmptyList"
                      :class="trueIndex === index?'active':''"
@@ -183,7 +183,7 @@
                     return;
                 }
                 this.isTouching = true;
-                Tool.removeClass(this.wrap, 'mov-carousel-transition');
+                Tool.removeClass(this.wrap, 'mona-carousel-transition');
 
                 this.currentTranslateX = this.translateX; // 记录手势开始前的偏移量
                 clearInterval(this.carouselTimer);
@@ -221,7 +221,7 @@
                     e.preventDefault();
                 }
                 this.isTouching = false;
-                Tool.addClass(this.wrap, 'mov-carousel-transition');
+                Tool.addClass(this.wrap, 'mona-carousel-transition');
                 this.calcEndIndex(e);
                 this.move();
 
@@ -285,7 +285,7 @@
                     return;
                 }
                 this.isTranslating = true;
-                !isFirst && Tool.addClass(this.wrap, 'mov-carousel-transition'); // 防止首次加载定位的时候有动画
+                !isFirst && Tool.addClass(this.wrap, 'mona-carousel-transition'); // 防止首次加载定位的时候有动画
                 this.moveOption(() => {
                     this.beforeChange && this.beforeChange(this.trueIndex);
                 });
@@ -297,12 +297,12 @@
                     }
                     clearTimeout(this.translateTimer);
                     this.translateTimer = setTimeout(() => {
-                        Tool.removeClass(this.wrap, 'mov-carousel-transition');
+                        Tool.removeClass(this.wrap, 'mona-carousel-transition');
                         this.moveOption();
 
                         clearTimeout(this.classTimer);
                         this.classTimer = setTimeout(() => {
-                            Tool.addClass(this.wrap, 'mov-carousel-transition');
+                            Tool.addClass(this.wrap, 'mona-carousel-transition');
                             this.isTranslating = false;
                         }, 50);
                     }, 300);

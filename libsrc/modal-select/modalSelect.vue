@@ -1,12 +1,12 @@
 <template>
     <popup :visible="visible" placement="bottom" :onClose="cancel">
-        <div class="mov-modal-select w-full">
-            <div class="mov-modal-select-header d-f">
+        <div class="mona-modal-select w-full">
+            <div class="mona-modal-select-header d-f">
                 <div class="flex-1 item flex-center-y" @click="cancel">取消</div>
                 <div class="flex-1 item flex-center-y flex-right-x" @click="confirm">确定</div>
             </div>
-            <div class="mov-modal-select-con o-a">
-                <div class="mov-modal-select-item flex-center-y pos-r"
+            <div class="mona-modal-select-con o-a">
+                <div class="mona-modal-select-item flex-center-y pos-r"
                     :class="{'selected': index === selectedIndex}"
                     v-for="(item, index) in source"
                     @click="select(index)">

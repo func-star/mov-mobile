@@ -1,11 +1,11 @@
 <template>
     <popup :visible="visible" placement="bottom" :onClose="cancel">
-        <div class="mov-date-picker w-full">
-            <div class="mov-date-picker-header d-f">
+        <div class="mona-date-picker w-full">
+            <div class="mona-date-picker-header d-f">
                 <div class="flex-1 item flex-center-y" @click="cancel">取消</div>
                 <div class="flex-1 item flex-center-y flex-right-x" @click="confirm">确定</div>
             </div>
-            <div class="mov-date-picker-con d-f">
+            <div class="mona-date-picker-con d-f">
                 <div class="flex-1 h-full" v-if="options.yearVisible">
                     <picker-view :source="years" :defaultValue="year" :onChange="this.getVal.bind(this, 'year')"></picker-view>
                 </div>
