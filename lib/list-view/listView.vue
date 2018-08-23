@@ -61,7 +61,7 @@ export default {
     computed: {
 	    sectionSty() {
             return {
-                top: -this.offset + 'px'
+                top: this.enableRefresh? (-this.offset + 'px') : 0
             }
         },
 	    headerSty() {
