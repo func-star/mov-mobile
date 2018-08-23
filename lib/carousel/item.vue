@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="mov-carousel-item pull-left h-full" :style="itemSty">
+    <div class="mona-carousel-item pull-left h-full" :style="itemSty">
         <slot></slot>
     </div>
 </template>

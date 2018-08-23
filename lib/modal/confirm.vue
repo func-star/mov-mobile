@@ -17,7 +17,7 @@
 	import Modal from './modal.vue';
 
 	export default {
-		name: 'mov-modal-confirm',
+		name: 'mona-modal-confirm',
 		components: {
 			Modal,
 		},

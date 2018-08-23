@@ -1,8 +1,8 @@
 @import "../../style/common";
 
-.mov-row-grid(@col) {
+.mona-row-grid(@col) {
 	.loop( @i ) when ( @i > 0 ) {
-		.mov-col-@{i} {
+		.mona-col-@{i} {
 			width: percentage(@i/@col);
 		}
 		.loop(@i - 1);
@@ -10,4 +10,4 @@
 	.loop(@col)
 }
 
-.mov-row-grid(24);
+.mona-row-grid(24);

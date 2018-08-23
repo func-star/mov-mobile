@@ -1,7 +1,7 @@
 <template>
 	<mount-root :visible="visible">
-		<div class="mov-loading pos-f pos-f-full flex-center" @touchmove="preventDefault($event)">
-			<div class="mov-loading-con" :style=" 'margin-top:' + (-1 * hdpHeader / 2) + 'px'"></div>
+		<div class="mona-loading pos-f pos-f-full flex-center" @touchmove="preventDefault($event)">
+			<div class="mona-loading-con" :style=" 'margin-top:' + (-1 * hdpHeader / 2) + 'px'"></div>
 		</div>
 	</mount-root>
 </template>

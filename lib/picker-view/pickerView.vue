@@ -1,16 +1,16 @@
 <template>
-	<div class="mov-picker-view">
+	<div class="mona-picker-view">
 		<div class="h-full flex-center">
-			<div class="mov-picker-view-wrap mov-picker-view-transition" ref="movPickerView">
-				<div class="mov-picker-view-item" v-if="keyType!=='key-value'" v-for="(item, index) in list">
+			<div class="mona-picker-view-wrap mona-picker-view-transition" ref="movPickerView">
+				<div class="mona-picker-view-item" v-if="keyType!=='key-value'" v-for="(item, index) in list">
 					{{item}}
 				</div>
-				<div class="mov-picker-view-item" v-if="keyType==='key-value'" v-for="(item, index) in list">
+				<div class="mona-picker-view-item" v-if="keyType==='key-value'" v-for="(item, index) in list">
 					{{item[nameKey]}}
 				</div>
 			</div>
 		</div>
-		<hammer class="mov-picker-view-mask" :style="'background-size: 100% calc(50% - '+lineHeight/2+'px);'" :panmove="this.panmove" :panend="this.panend" :panstart="this.panstart">
+		<hammer class="mona-picker-view-mask" :style="'background-size: 100% calc(50% - '+lineHeight/2+'px);'" :panmove="this.panmove" :panend="this.panend" :panstart="this.panstart">
 		</hammer>
 	</div>
 </template>
@@ -105,7 +105,7 @@
 			panstart (e) {
 				e.preventDefault();
 				this.startY = this.y;
-				Tool.removeClass(this.wrap, 'mov-picker-view-transition');
+				Tool.removeClass(this.wrap, 'mona-picker-view-transition');
 				this.maxHeight = (this.list.length - 1) * this.lineHeight;
 			},
 
@@ -116,7 +116,7 @@
 
 			panend (e) {
 				e.preventDefault();
-				Tool.addClass(this.wrap, 'mov-picker-view-transition');
+				Tool.addClass(this.wrap, 'mona-picker-view-transition');
 
 				let speed = this.calcSpeed(e.velocityY);
 				let endPoint = this.calcEndPoint(e.deltaY + speed * this.lineHeight); //获取终点位置;
@@ -137,7 +137,7 @@
 
 				clearTimeout(this.removeTimeout);
 				this.removeTimeout = setTimeout(() => {
-					Tool.removeClass(this.wrap, 'mov-picker-view-transition');
+					Tool.removeClass(this.wrap, 'mona-picker-view-transition');
 				}, 1000);
 			},
 

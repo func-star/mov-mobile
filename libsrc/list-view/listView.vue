@@ -1,173 +1,222 @@
 <template lang="html">
-    <div class="mona-scroll o-a pos-a pos-a-full" id="mona-scroll" :class="{'down':(state===0),'up':(state===1),'refresh':(state===2),'touch':touching}" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd($event)" @scroll="(onInfinite || infiniteLoading) ? onScroll($event) : undefined">
-        <section class="mona-scroll-inner w-full pos-a" ref="movScrollInner" :style="innerSty">
-            <header class="pull-refresh w-full flex-center" :style="pullRefreshSty">
+	<Hammer
+		class="mona-list-view full o-a pos-r"
+		:panstart="panstart"
+		:panmove="panmove"
+		:panend="panend"
+		:scrollAction="scroll"
+		ref="container">
+		<section class="mona-list-view-section pos-a w-full" :style="sectionSty" ref="wrap">
+			<header class="list-view-refresh flex-center" :style="headerSty" v-if="enableRefresh">
                 <slot name="pull-refresh">
-                   <div class="pull-refresh-icon" :class="{'animate': !touching}"></div>
+                    <div ref="refreshIcon" class="list-view-refresh-icon"></div>
                 </slot>
             </header>
-            <slot></slot>
-            <footer class="load-more" v-if="enableInfinite&&!isEnd">
+			<slot></slot>
+			<footer class="list-view-infinite" v-if="enableInfinite && !isEnd">
                 <slot name="load-more">
-                    <div class="load-more-icon block-center"></div>
+                    <div class="list-view-infinite-icon block-center"></div>
                 </slot>
             </footer>
-        </section>
-    </div>
+		</section>
+	</Hammer>
 </template>
 <script>
-import Tool from '../tool';
+import Tool from '../tool'
+import Hammer from '../hammer'
 
 export default {
+	components: {
+		Hammer
+	},
     props: {
         offset: {
             type: Number,
-            default: 50,
+            default: 50
         },
         bottomEmit: {
             type: Number,
-            default: 100,
+            default: 100
         },
+	    infiniteTimer: {
+		    type: Number,
+		    default: 200
+	    },
         enableInfinite: {
             type: Boolean,
-            default: true,
+            default: true
         },
         enableRefresh: {
             type: Boolean,
-            default: true,
+            default: true
         },
         isEnd: {
             type: Boolean,
-            default: false,
+            default: false
         },
+	    onScroll: Function,
         onRefresh: Function,
-        onInfinite: Function,
-        onMove: Function,
+        onInfinite: Function
     },
     computed: {
-        innerSty() {
+	    sectionSty() {
             return {
-                top: -this.offset + 'px',
-            };
+                top: -this.offset + 'px'
+            }
         },
-        pullRefreshSty() {
+	    headerSty() {
             return {
-                height: this.offset + 'px',
-            };
-        },
+                height: this.offset + 'px'
+            }
+        }
     },
     data() {
         return {
-            top: 0,
-            state: 0,
-            startY: 0,
-            touching: false,
-            infiniteLoading: false,
-        };
+	        startY: 0, // 起点的位置
+	        startScrollTop: 0, // 开始touch事件时的scrollTop值
+	        status: 0,	// 0-下降状态以及初始状态、1-上升状态、2-停止状态，正在刷新
+	        top: 0,
+	        touching: false,
+	        infiniting: false // 加载更多区块处理状态中
+        }
     },
+	created() {
+		if (this.enableRefresh && !this.onRefresh) {
+			throw new Error('允许下拉的情况下（enableRefresh: true），onRefresh 回调函数不允许为空')
+		}
+		if (this.enableInfinite && !this.onInfinite) {
+			throw new Error('允许加载更多的情况下（enableInfinite: true），onInfinite 回调函数不允许为空')
+		}
+	},
     mounted() {
-        this.scrollInnerView = this.$refs.movScrollInner;
+	    this.container = this.$refs.container
+	    this.wrap = this.$refs.wrap
+	    this.refreshIcon = this.$refs.refreshIcon
     },
     methods: {
-        touchStart(e) {
-            this.startY = e.targetTouches[0].pageY;
-            this.startScroll = this.$el.scrollTop || 0;
-            this.touching = true;
+	    panstart(e) {
+		    const angleAbs = Math.abs(e.angle)
+		    this.startScrollTop = this.container.$el.scrollTop || 0
+		    if (e.velocityY > 0 && this.startScrollTop <= 0) {
+			    e.preventDefault()
+		    }
+		    if (angleAbs > 45 && angleAbs < 135) {
+			    Tool.removeClass(this.wrap, 'mona-list-view-transition')
+			    this.startY = e.center.y
+			    this.touching = true
+		    }
         },
-        touchMove(e) {
-            if (!this.enableRefresh || this.$el.scrollTop > 0 || !this.touching) {
-                return;
-            }
-            let diff = e.targetTouches[0].pageY - this.startY - this.startScroll;
-            if (diff > 0) {
-                e.preventDefault();
-            }
-            this.top = Math.pow(diff, 0.8) + (this.state === 2 ? this.offset : 0);
-            this.topStyle();
 
-            if (this.state === 2) { // in refreshing
-                return;
-            }
-            if (this.top >= this.offset) {
-                this.state = 1;
-            } else {
-                this.state = 0;
-            }
+	    panmove(e) {
+	        const diff = e.center.y - this.startY - this.startScrollTop
+	        if (diff > 0) {
+		        e.preventDefault()
+	        }
+
+	        if (!this.enableRefresh || this.container.$el.scrollTop > 0 || !this.touching) {
+		        return
+	        }
+
+	        this.top = Math.pow(diff, 0.8) + (this.status === 2 ? this.offset : 0) // 弹性阻尼
+	        this.setHeaderPosition()
+
+	        if (this.status === 2) {
+		        return
+	        }
+	        if (this.top >= this.offset) {
+		        this.status = 1	// 位移过程中，超过header高度
+	        } else {
+		        this.status = 0	// 位移过程中，未超过header高度
+	        }
         },
-        touchEnd(e) {
-            if (!this.enableRefresh || !this.touching) {
-                return;
-            }
-            this.touching = false;
-            if (this.state === 2) { // in refreshing
-                this.state = 2;
-                this.top = this.offset;
-                this.topStyle();
-                return;
-            }
-            if (this.top >= this.offset) { // do refresh
-                this.refresh();
-            } else { // cancel refresh
-                this.state = 0;
-                this.top = 0;
-                this.topStyle();
-            }
+
+	    panend(e) {
+		    if (!this.enableRefresh || !this.touching) {
+			    return
+		    }
+		    Tool.addClass(this.wrap, 'mona-list-view-transition')
+		    this.touching = false
+
+		    if (this.status === 2) {
+			    this.top = this.offset
+			    this.setHeaderPosition()
+			    return
+		    }
+
+		    if (this.top >= this.offset) {
+			    // 执行刷新
+			    this.status = 2
+			    this.top = this.offset
+			    this.refresh()
+		    } else {
+			    this.status = 0
+			    this.top = 0
+		    }
+		    this.setHeaderPosition()
         },
+
         refresh() {
-            this.state = 2;
-            this.top = this.offset;
-            this.topStyle();
-            this.onRefresh(this.refreshDone);
-        },
-        refreshDone() {
-            this.state = 0;
-            this.top = 0;
-            this.topStyle();
+	        Tool.addClass(this.refreshIcon, 'animate')
+	        this.onRefresh && this.onRefresh(this.refreshDone.bind(this))
         },
 
-        topStyle() {
-            Tool.css(this.scrollInnerView, {
-                'will-change': 'transform',
-                transform: this.top ? 'translateY(' + this.top + 'px)' : 'none',
-            });
+	    // 刷新结束钩子函数，回调
+        refreshDone() {
+	        this.status = 0
+	        this.top = 0
+	        Tool.removeClass(this.refreshIcon, 'animate')
+	        this.setHeaderPosition()
         },
+
+	    scroll (e) {
+		    this.onScroll && this.onScroll({scrollTop: this.$el.scrollTop, ...e})
+		    if (!this.enableInfinite || this.infiniting) {
+			    return
+		    }
+		    if (this.isEnd) {
+			    return
+		    }
+		    if (this.isTiming) {
+			    return
+		    }
+		    this.isTiming = true
+
+		    clearTimeout(this.timer)
+		    this.timer = setTimeout(() => {
+			    this.containerHeight = this.containerHeight || this.container.$el.clientHeight
+			    this.sectionHeight = this.sectionHeight || this.wrap.clientHeight
+			    const scrollTop = this.container.$el.scrollTop
+			    this.headerHeight = this.headerHeight || (this.enableRefresh ? this.offset : 0)
+
+			    const bottom = this.sectionHeight - this.containerHeight - scrollTop - this.headerHeight
+			    if (bottom < (this.sectionHeight + this.bottomEmit)) {
+				    this.infinite()
+			    }
+			    this.isTiming = false
+		    }, this.infiniteTimer)
+	    },
 
         infinite() {
-            this.infiniteLoading = true;
-            this.onInfinite(this.infiniteDone);
+	        this.infiniting = true
+	        this.onInfinite && this.onInfinite(this.infiniteDone.bind(this))
         },
 
         infiniteDone() {
-            this.infiniteLoading = false;
+	        this.infiniting = false
         },
 
-        onScroll(e) {
-            this.onMove && this.onMove(this.$el.scrollTop);
-            if (!this.enableInfinite || this.infiniteLoading) {
-                return;
-            }
-            if (this.isEnd) {
-                return;
-            }
-            if (this.isTimeout) {
-                return;
-            }
-            this.isTimeout = true;
-            clearTimeout(this.timer);
-            this.timer = setTimeout(() => {
-                let outerHeight = this.$el.clientHeight;
-                let innerHeight = this.$el.querySelector('.mona-scroll-inner').clientHeight;
-                let scrollTop = this.$el.scrollTop;
-                let ptrHeight = this.onRefresh ? this.$el.querySelector('.pull-refresh').clientHeight : 0;
-                let infiniteHeight = this.$el.querySelector('.load-more').clientHeight;
-                let bottom = innerHeight - outerHeight - scrollTop - ptrHeight;
-                if (bottom < (infiniteHeight + this.bottomEmit)) {
-                    this.infinite();
-                }
-                this.isTimeout = false;
-            }, 200);
-        },
-    },
-};
+	    // 头部下拉刷新区块位移
+	    setHeaderPosition () {
+		    Tool.css(this.wrap, {
+			    'will-change': 'transform',
+			    transform: this.top ? `translateY(${this.top}px)` : 'none'
+		    })
+	    },
+
+	    toTop() {
+		    this.container.$el.scrollTop = 0
+	    }
+    }
+}
 
 </script>

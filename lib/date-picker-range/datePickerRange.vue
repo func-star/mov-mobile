@@ -1,13 +1,13 @@
 <template>
 	<popup :visible="visible" placement="bottom" :onClose="cancel">
-		<div class="mov-date-picker-range w-full">
-			<div class="mov-date-picker-range-header d-f">
+		<div class="mona-date-picker-range w-full">
+			<div class="mona-date-picker-range-header d-f">
 				<div class="flex-1 h-full item flex-center-y" @click="cancel">取消</div>
 				<div class="flex-1 h-full item flex-center-y flex-right-x" @click="confirm">确定</div>
 			</div>
 			<div class="full d-f">
 				<date-item class="flex-1 h-full" :defaultOpt="options" itemKey="start" ref="dateItemStart"></date-item>
-				<div class="mov-date-to flex-center"></div>
+				<div class="mona-date-to flex-center"></div>
 				<date-item class="flex-1 h-full" :defaultOpt="options" itemKey="end" ref="dateItemEnd"></date-item>
 			</div>
 		</div>

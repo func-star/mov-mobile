@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="mov-row" :class="rowClass" :style="rowSty">
+    <div class="mona-row" :class="rowClass" :style="rowSty">
         <slot></slot>
     </div>
 </template>
@@ -24,9 +24,9 @@ export default {
         },
         rowClass() {
             let classList = '';
-            this.justify&&(classList+='mov-row-'+this.justify + ' ');
-            this.align&&(classList+='mov-row-align-'+this.align + ' ');
-            this.direction&&(classList+='mov-row-direction-'+this.direction + ' ');
+            this.justify&&(classList+='mona-row-'+this.justify + ' ');
+            this.align&&(classList+='mona-row-align-'+this.align + ' ');
+            this.direction&&(classList+='mona-row-direction-'+this.direction + ' ');
             return classList;
         },
     },

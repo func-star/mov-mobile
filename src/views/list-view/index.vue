@@ -2,11 +2,11 @@
 	<demo-page title="ListView - 列表" intro="支持瀑布流和手动下拉刷新" style="padding-bottom: 0">
 		<demo-section title="基础用法" intro="demo1">
 			<div class="list-view-wrap pos-r">
-				<list-view :on-refresh="onRefresh" :on-infinite="onInfinite" :on-move="onMove" :isEnd="isEnd">
+				<list-view :on-refresh="onRefresh" ref="listView" :on-scroll="onScroll" :on-infinite="onInfinite" :isEnd="isEnd">
 					<div class="list-view-group">
-						<div class="list-view-item flex-center-y" v-for="(item, index) of list">
+						<div class="list-view-item flex-center-y" v-for="(item, index) in list">
 							<div class="avatar r-circle"></div>
-							<div class="info flex-1">{{`_mirror_ ${index}`}}</div>
+							<div class="info flex-1" @click="toTop">{{`_mirror_ ${index}`}}</div>
 						</div>
 					</div>
 				</list-view>
@@ -15,11 +15,10 @@
 	</demo-page>
 </template>
 
-
 <script type="text/ecmascript-6">
-	import DemoPage from 'components/demo-page';
-	import DemoSection from 'components/demo-section';
-	import {ListView} from 'mov';
+	import DemoPage from 'components/demo-page'
+	import DemoSection from 'components/demo-section'
+	import { ListView } from 'mov'
 	// TODO 缺少toTop
 
 	export default {
@@ -27,16 +26,16 @@
 		components: {
 			DemoPage,
 			DemoSection,
-			ListView,
+			ListView
 		},
 
 		props: {},
 
-		data() {
+		data () {
 			return {
 				list: [],
-				isEnd: false,
-			};
+				isEnd: false
+			}
 		},
 
 		computed: {},
@@ -44,44 +43,46 @@
 		watch: {},
 
 		methods: {
-			init() {
-				this.getList();
+			init () {
+				this.getList()
 			},
-			onRefresh(done) {
+			onRefresh (done) {
 				setTimeout(() => {
-					this.getList();
-					this.isEnd = this.list.length >= 20;
-					done();
-				}, 2000);
+					this.getList()
+					this.isEnd = this.list.length >= 20
+					done()
+				}, 2000)
 			},
 
-			onInfinite(done) {
+			onInfinite (done) {
 				setTimeout(() => {
-					this.list = this.list.concat([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-					this.isEnd = this.list.length > 40;
-					done();
-				}, 1500);
+					this.list = this.list.concat([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+					this.isEnd = this.list.length > 40
+					done()
+				}, 1500)
 			},
-			onMove(scrollTop) {
-				console.log(`scrollTop: ${scrollTop}`);
+			onScroll (e) {
+				console.log(`scrollTop: ${e.scrollTop}`)
 			},
-			getList() {
-				this.list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+			getList () {
+				this.list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 			},
+			toTop () {
+				this.$refs.listView.toTop()
+			}
 		},
 
 		filters: {},
 
-		created() {
-			this.init();
+		created () {
+			this.init()
 		},
 
-		mounted() {
+		mounted () {
 
-		},
-	};
+		}
+	}
 </script>
-
 
 <style lang="less">
 	.list-view-wrap {

@@ -1,6 +1,6 @@
 <template lang="html">
     <hammer :panmove="panmove" :panend="panend" :panstart="panstart">
-        <div class="mov-swiper o-h full pos-r" ref="movSwiper">
+        <div class="mona-swiper o-h full pos-r" ref="movSwiper">
             <div class="content h-full o-h" :style="contentSty" ref="movSwiperContent">
                 <slot></slot>
             </div>
@@ -80,7 +80,7 @@
 
                 this.isTouching = angleAbs < 40 || angleAbs > 140;
                 if (this.isTouching) {
-                    Tool.removeClass(this.wrap, 'mov-swiper-transition');
+                    Tool.removeClass(this.wrap, 'mona-swiper-transition');
                     this.currentTranslateX = this.translateX; // 记录手势开始前的偏移量
                 }
             },
@@ -114,7 +114,7 @@
                     e.preventDefault();
                 }
                 this.isTouching = false;
-                Tool.addClass(this.wrap, 'mov-swiper-transition');
+                Tool.addClass(this.wrap, 'mona-swiper-transition');
                 this.calcEndIndex(e);
                 this.move();
             },
@@ -176,7 +176,7 @@
                     return;
                 }
                 this.isTranslating = true;
-                !isFirst && Tool.addClass(this.wrap, 'mov-swiper-transition');
+                !isFirst && Tool.addClass(this.wrap, 'mona-swiper-transition');
                 this.translateX = -1 * this.itemWidth * this.currentIndex; // 偏移量
 
                 this.beforeChange && this.beforeChange(this.currentIndex);

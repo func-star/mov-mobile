@@ -1,8 +1,8 @@
 <template>
 	<mount-root :visible="visible" :closeDelay="closeDelay" :onMounted="onMountRooted">
-		<div class="mov-popup pos-f pos-f-full" :class="[{'show-content': showContent, 'have-animate': animate}, placement]">
-			<div class="mov-popup-mask pos-a pos-a-full" @click="maskClick" @touchmove="preventDefault($event)"></div>
-			<div class="mov-popup-con pos-a">
+		<div class="mona-popup pos-f pos-f-full" :class="[{'show-content': showContent, 'have-animate': animate}, placement]">
+			<div class="mona-popup-mask pos-a pos-a-full" @click="maskClick" @touchmove="preventDefault($event)"></div>
+			<div class="mona-popup-con pos-a">
 				<slot></slot>
 			</div>
 		</div>

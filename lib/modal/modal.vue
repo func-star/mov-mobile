@@ -1,13 +1,13 @@
 <template>
     <mount-root :visible="visible">
-        <div class="mov-modal flex-center pos-f pos-f-full" :class="{'mask': isHaveMask}" @touchmove="preventDefault($event)">
-            <div class="mov-modal-mask pos-a pos-a-full" @click="closeMask()"></div>
-            <div class="mov-modal-content pos-r o-h" :class="contentClass">
-                <div class="mov-modal-content-header" v-if="title" v-html="title"></div>
-                <div class="mov-modal-content-content" :class="title ? '' : 'no-title'">
+        <div class="mona-modal flex-center pos-f pos-f-full" :class="{'mask': isHaveMask}" @touchmove="preventDefault($event)">
+            <div class="mona-modal-mask pos-a pos-a-full" @click="closeMask()"></div>
+            <div class="mona-modal-content pos-r o-h" :class="contentClass">
+                <div class="mona-modal-content-header" v-if="title" v-html="title"></div>
+                <div class="mona-modal-content-content" :class="title ? '' : 'no-title'">
                     <slot></slot>
                 </div>
-                <div class="mov-modal-content-footer d-f" v-if="footer">
+                <div class="mona-modal-content-footer d-f" v-if="footer">
                     <div class="flex-1 cancel h-full flex-center" v-if="enableCancel" @click="cancel('button')">
                         {{cancelText || '取消'}}
                     </div>
@@ -22,7 +22,7 @@
     import Tool from '../tool';
 
     export default {
-        name: 'mov-modal',
+        name: 'mona-modal',
         components: {
             'mount-root': MountRoot,
         },

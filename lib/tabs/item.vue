@@ -18,8 +18,13 @@ export default {
     },
 
     created() {
-        this.itemSty = 'width:' + document.documentElement.offsetWidth + 'px';
+
+
     },
+
+	mounted() {
+		this.itemSty = 'width:' + this.$parent.$el.offsetWidth + 'px';
+	}
 };
 
 </script>
