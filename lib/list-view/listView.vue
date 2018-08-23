@@ -13,7 +13,7 @@
                 </slot>
             </header>
 			<slot></slot>
-			<footer class="list-view-infinite" v-if="enableInfinite && !isEnd">
+			<footer class="list-view-infinite" v-if="enableInfinite && !isEnd" ref="footerWrap">
                 <slot name="load-more">
                     <div class="list-view-infinite-icon block-center"></div>
                 </slot>
@@ -92,6 +92,7 @@ export default {
 	    this.container = this.$refs.container
 	    this.wrap = this.$refs.wrap
 	    this.refreshIcon = this.$refs.refreshIcon
+	    this.footerWrap = this.$refs.footerWrap
     },
     methods: {
 	    panstart(e) {
@@ -184,12 +185,13 @@ export default {
 		    clearTimeout(this.timer)
 		    this.timer = setTimeout(() => {
 			    this.containerHeight = this.containerHeight || this.container.$el.clientHeight
-			    this.sectionHeight = this.sectionHeight || this.wrap.clientHeight
+			    this.sectionHeight = this.wrap.clientHeight
 			    const scrollTop = this.container.$el.scrollTop
 			    this.headerHeight = this.headerHeight || (this.enableRefresh ? this.offset : 0)
+			    this.footerHeight = this.footerHeight || this.footerWrap.clientHeight
 
 			    const bottom = this.sectionHeight - this.containerHeight - scrollTop - this.headerHeight
-			    if (bottom < (this.sectionHeight + this.bottomEmit)) {
+			    if (bottom < (this.footerHeight + this.bottomEmit)) {
 				    this.infinite()
 			    }
 			    this.isTiming = false
