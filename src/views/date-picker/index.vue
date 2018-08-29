@@ -1,27 +1,43 @@
 <template>
-	<div class="d-f picker-select">
-		<div class="key">滚动弹层选择器</div>
-		<div class="flex-1 text-right value" @click="open">{{value || '请点击选择 >'}}</div>
+	<div>
+		<demo-page title="date-picker -  时间弹层选择器" intro="时间选择器">
+			<demo-section title="基础用法" intro="demo1">
+				<demo-button text="显示时间弹层选择器" @click.native="demo1"></demo-button>
+			</demo-section>
+		</demo-page>
+
 	</div>
 </template>
+
+
 <script type="text/ecmascript-6">
-	import { DatePicker } from 'mov';
+	import DemoPage from 'components/demo-page';
+	import DemoSection from 'components/demo-section';
+	import DemoButton from 'components/demo-button';
+	import {DatePicker, Tool} from 'mov';
 	import Util from 'core/util';
-	import './index.less';
 
 	export default {
-		name: 'date-picker',
+		name: 'PickerSelectDemo',
 
-		data () {
-			return {
-				value: '',
-			};
+		components: {
+			DemoPage,
+			DemoSection,
+			DemoButton,
 		},
 
-		created () {},
+		props: {},
+
+		data() {
+			return {};
+		},
+
+		computed: {},
+
+		watch: {},
 
 		methods: {
-			open () {
+			demo1() {
 				let defaultDate = Util.moment(this.value).valueOf();
 
 				DatePicker.config({
@@ -29,13 +45,29 @@
 					date: defaultDate,
 					onOk: (data) => {
 						this.value = Util.moment(data).format('YYYY-MM-DD HH:mm:ss');
+						Tool.info(`选中了时间${this.value }`);
 					},
 					onCancel: () => {
-						console.log('cancel');
+						Tool.info('取消了选择');
 					},
 				});
 			},
+
+		},
+
+		filters: {},
+
+		created() {
+
+		},
+
+		mounted() {
 		},
 	};
-
 </script>
+
+
+<style lang="less" scoped>
+
+</style>
+

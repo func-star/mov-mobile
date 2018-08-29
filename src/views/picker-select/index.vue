@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<demo-page title="picker-select - 滚动弹层选择器" intro="提示">
+		<demo-page title="picker-select - 滚动弹层选择器" intro="滚动弹层选择器">
 			<demo-section title="基础用法" intro="demo1">
 				<demo-button text="显示滚动弹层选择器" @click.native="demo1"></demo-button>
 			</demo-section>

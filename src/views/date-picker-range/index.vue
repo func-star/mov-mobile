@@ -1,28 +1,46 @@
 <template>
-	<div class="d-f picker-select">
-		<div class="key">滚动弹层选择器</div>
-		<div class="flex-1 text-right value" @click="open">{{start}} 至 {{end}}</div>
+	<div>
+		<demo-page title="date-picker -  时间弹层选择器" intro="时间选择器">
+			<demo-section title="基础用法" intro="demo1">
+				<demo-button text="显示时间弹层选择器" @click.native="demo1"></demo-button>
+			</demo-section>
+		</demo-page>
+
 	</div>
 </template>
+
+
 <script type="text/ecmascript-6">
-	import { DatePickerRange } from 'mov';
+	import DemoPage from 'components/demo-page';
+	import DemoSection from 'components/demo-section';
+	import DemoButton from 'components/demo-button';
+	import {DatePickerRange, Tool} from 'mov';
 	import Util from 'core/util';
-	import './index.less';
 
 	export default {
-		name: 'date-picker-ranger',
+		name: 'DatePickerRangeDemo',
 
-		data () {
+		components: {
+			DemoPage,
+			DemoSection,
+			DemoButton,
+		},
+
+		props: {},
+
+		data() {
 			return {
 				start: '',
 				end: '',
 			};
 		},
 
-		created () {},
+		computed: {},
+
+		watch: {},
 
 		methods: {
-			open () {
+			demo1() {
 				let start = Util.moment(this.start).valueOf();
 				let end = Util.moment(this.end).valueOf();
 
@@ -34,15 +52,29 @@
 					onOk: (data) => {
 						this.start = Util.moment(data.start).format('YYYY-MM-DD');
 						this.end = Util.moment(data.end).format('YYYY-MM-DD');
-						console.log(Util.moment(data.start).format('YYYY-MM-DD HH:mm:ss'));
-						console.log(Util.moment(data.end).format('YYYY-MM-DD HH:mm:ss'));
+						Tool.info(`选中开始时间${Util.moment(data.start).format('YYYY-MM-DD HH:mm:ss')}, 结束时间${Util.moment(data.end).format('YYYY-MM-DD HH:mm:ss')}`);
 					},
 					onCancel: () => {
-						console.log('cancel');
+						Tool.info('取消了选择');
 					},
 				});
 			},
+
+		},
+
+		filters: {},
+
+		created() {
+
+		},
+
+		mounted() {
 		},
 	};
-
 </script>
+
+
+<style lang="less" scoped>
+
+</style>
+
