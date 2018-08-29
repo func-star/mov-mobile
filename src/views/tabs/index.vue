@@ -50,7 +50,8 @@
 
 	const TabsItem = Tabs.Item;
 
-	// TODO 取消默认头部，采用自定义头部  禁用弹性阻尼效果  canPan统一为enableTouch
+	// TODO 取消默认头部，采用自定义头部
+	//  禁用弹性阻尼效果  canPan统一为enableTouch
 
 	export default {
 

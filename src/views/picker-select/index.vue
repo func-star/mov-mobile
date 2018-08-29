@@ -1,52 +1,74 @@
 <template>
-	<div class="d-f picker-select">
-		<div class="key">滚动弹层选择器</div>
-		<div class="flex-1 text-right value" @click="open">{{value || '请点击选择 >'}}</div>
-		<picker-select :visible="visible" :source="source" keyType="value" :defaultValue="value" :onChange="getValue" :onClose="close"></picker-select>
+	<div>
+		<demo-page title="picker-select - 滚动弹层选择器" intro="提示">
+			<demo-section title="基础用法" intro="demo1">
+				<demo-button text="显示滚动弹层选择器" @click.native="demo1"></demo-button>
+			</demo-section>
+		</demo-page>
+		<picker-select :visible="visible" :source="source" keyType="value" :defaultValue="value" :onChange="getValue"
+					   :onClose="close"></picker-select>
 	</div>
 </template>
+
+
 <script type="text/ecmascript-6">
-	import { PickerSelect } from 'mov';
+	import DemoPage from 'components/demo-page';
+	import DemoSection from 'components/demo-section';
+	import DemoButton from 'components/demo-button';
+	import {PickerSelect, Tool} from 'mov';
 
 	export default {
+		name: 'PickerSelectDemo',
+
 		components: {
+			DemoPage,
+			DemoSection,
+			DemoButton,
 			PickerSelect,
 		},
 
 		props: {},
 
-		data () {
+		data() {
 			return {
 				value: '2018年',
 				visible: false,
+				source: [],
 			};
 		},
 
-		created () {
-			this.source = [];
+		computed: {},
+
+		watch: {},
+
+		methods: {
+			demo1() {
+				this.visible = true;
+			},
+			getValue(val) {
+				this.value = val;
+				Tool.info(`选择了${val}`);
+			},
+			close() {
+				this.visible = false;
+			},
+		},
+
+		filters: {},
+
+		created() {
 			for (let i = 0; i < 100; i++) {
 				this.source.push(2000 + i + '年');
 			}
 		},
 
-		methods: {
-			init () {
-
-			},
-			getValue (val) {
-				this.value = val;
-			},
-			close () {
-				this.visible = false;
-			},
-			open () {
-				this.visible = true;
-			},
-		},
-
-		mounted () {
-			this.init();
+		mounted() {
 		},
 	};
-
 </script>
+
+
+<style lang="less" scoped>
+
+</style>
+
