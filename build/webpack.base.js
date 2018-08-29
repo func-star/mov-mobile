@@ -21,7 +21,7 @@ module.exports = {
 			path.resolve(__dirname, '../src/style'),
 		],
 		alias: {
-			'mov': path.resolve(__dirname, '../'),
+			'mona': path.resolve(__dirname, '../'),
 			'src': path.resolve(__dirname, '../src'),
 			'vue': path.resolve('./node_modules/vue'),
 			'autoprefixer': path.resolve('./node_modules/autoprefixer'),

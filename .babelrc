@@ -8,7 +8,7 @@
 			"import",
 			[
 				{
-					"libraryName": "mov",
+					"libraryName": "mona",
 					"libraryDirectory": "libsrc",
 					"style": true
 				}

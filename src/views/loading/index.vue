@@ -8,12 +8,11 @@
 	</div>
 </template>
 
-
 <script type="text/ecmascript-6">
-	import DemoPage from 'components/demo-page';
-	import DemoSection from 'components/demo-section';
-	import DemoButton from 'components/demo-button';
-	import {Loading} from 'mov';
+	import DemoPage from 'components/demo-page'
+	import DemoSection from 'components/demo-section'
+	import DemoButton from 'components/demo-button'
+	import { Loading } from 'mona'
 
 	export default {
 		name: 'Loading',
@@ -22,26 +21,25 @@
 			DemoPage,
 			DemoSection,
 			DemoButton,
-			Loading,
+			Loading
 		},
 
 		props: {},
 
-		data() {
-			return {};
+		data () {
+			return {}
 		},
 
 		methods: {
-			demo1() {
-				Loading.show();
+			demo1 () {
+				Loading.show()
 				setTimeout(() => {
-					Loading.hide();
-				}, 3000);
-			},
-		},
-	};
+					Loading.hide()
+				}, 3000)
+			}
+		}
+	}
 </script>
-
 
 <style lang="less" scoped>
 

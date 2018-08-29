@@ -6,16 +6,15 @@
 			</demo-section>
 		</demo-page>
 		<picker-select :visible="visible" :source="source" keyType="value" :defaultValue="value" :onChange="getValue"
-					   :onClose="close"></picker-select>
+			:onClose="close"></picker-select>
 	</div>
 </template>
 
-
 <script type="text/ecmascript-6">
-	import DemoPage from 'components/demo-page';
-	import DemoSection from 'components/demo-section';
-	import DemoButton from 'components/demo-button';
-	import {PickerSelect, Tool} from 'mov';
+	import DemoPage from 'components/demo-page'
+	import DemoSection from 'components/demo-section'
+	import DemoButton from 'components/demo-button'
+	import { PickerSelect, Tool } from 'mona'
 
 	export default {
 		name: 'PickerSelectDemo',
@@ -24,17 +23,17 @@
 			DemoPage,
 			DemoSection,
 			DemoButton,
-			PickerSelect,
+			PickerSelect
 		},
 
 		props: {},
 
-		data() {
+		data () {
 			return {
 				value: '2018年',
 				visible: false,
-				source: [],
-			};
+				source: []
+			}
 		},
 
 		computed: {},
@@ -42,31 +41,30 @@
 		watch: {},
 
 		methods: {
-			demo1() {
-				this.visible = true;
+			demo1 () {
+				this.visible = true
 			},
-			getValue(val) {
-				this.value = val;
-				Tool.info(`选择了${val}`);
+			getValue (val) {
+				this.value = val
+				Tool.info(`选择了${val}`)
 			},
-			close() {
-				this.visible = false;
-			},
+			close () {
+				this.visible = false
+			}
 		},
 
 		filters: {},
 
-		created() {
+		created () {
 			for (let i = 0; i < 100; i++) {
-				this.source.push(2000 + i + '年');
+				this.source.push(2000 + i + '年')
 			}
 		},
 
-		mounted() {
-		},
-	};
+		mounted () {
+		}
+	}
 </script>
-
 
 <style lang="less" scoped>
 

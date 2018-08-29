@@ -42,13 +42,12 @@
 	</demo-page>
 </template>
 
-
 <script type="text/ecmascript-6">
-	import DemoPage from 'components/demo-page';
-	import DemoSection from 'components/demo-section';
-	import Tabs from '../../../libsrc/tabs/index.js';
+	import DemoPage from 'components/demo-page'
+	import DemoSection from 'components/demo-section'
+	import { Tabs } from 'mona'
 
-	const TabsItem = Tabs.Item;
+	const TabsItem = Tabs.Item
 
 	// TODO 取消默认头部，采用自定义头部
 	//  禁用弹性阻尼效果  canPan统一为enableTouch
@@ -59,19 +58,19 @@
 			DemoPage,
 			DemoSection,
 			Tabs,
-			TabsItem,
+			TabsItem
 		},
 
 		props: {},
 
-		data() {
+		data () {
 			return {
 				tabs: [
-					{title: 'Tab - 1'},
-					{title: 'Tab - 2'},
-					{title: 'Tab - 3'},
-				],
-			};
+					{ title: 'Tab - 1' },
+					{ title: 'Tab - 2' },
+					{ title: 'Tab - 3' }
+				]
+			}
 		},
 
 		computed: {},
@@ -79,25 +78,24 @@
 		watch: {},
 
 		methods: {
-			afterChange(index) {
-				console.log(index);
+			afterChange (index) {
+				console.log(index)
 			},
-			onChangeTab() {
-				this.refs.tabs.changeIndex(0);
-			},
+			onChangeTab () {
+				this.refs.tabs.changeIndex(0)
+			}
 		},
 
 		filters: {},
 
-		created() {
+		created () {
 		},
 
-		mounted() {
+		mounted () {
 
-		},
-	};
+		}
+	}
 </script>
-
 
 <style lang="less" scoped>
 	.tabs {

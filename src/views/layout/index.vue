@@ -30,7 +30,7 @@
 			</row>
 		</demo-section>
 		<demo-section title="flex布局 - 垂直布局水平居右" intro="demo2">
-			<row class="layout-wrap m-t-10" direction="column"  align="flex-end">
+			<row class="layout-wrap m-t-10" direction="column" align="flex-end">
 				<column :span="12" class="layout-item flex f-center">span: 12</column>
 				<column :span="12" class="layout-item flex f-center">span: 12</column>
 			</row>
@@ -38,12 +38,11 @@
 	</demo-page>
 </template>
 
-
 <script type="text/ecmascript-6">
-	import DemoPage from 'components/demo-page';
-	import DemoSection from 'components/demo-section';
-	import DemoButton from 'components/demo-button';
-	import {Row, Column} from 'mov';
+	import DemoPage from 'components/demo-page'
+	import DemoSection from 'components/demo-section'
+	import DemoButton from 'components/demo-button'
+	import { Row, Column } from 'mona'
 
 	export default {
 		name: 'Layout',
@@ -53,13 +52,13 @@
 			DemoSection,
 			DemoButton,
 			Row,
-			Column,
+			Column
 		},
 
 		props: {},
 
-		data() {
-			return {};
+		data () {
+			return {}
 		},
 
 		computed: {},
@@ -70,14 +69,13 @@
 
 		filters: {},
 
-		created() {
+		created () {
 		},
 
-		mounted() {
-		},
-	};
+		mounted () {
+		}
+	}
 </script>
-
 
 <style lang="less" scoped>
 	.layout-wrap .layout-item:nth-child(2n) {

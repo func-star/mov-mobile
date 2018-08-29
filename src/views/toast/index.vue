@@ -18,12 +18,11 @@
 	</demo-page>
 </template>
 
-
 <script type="text/ecmascript-6">
-	import DemoPage from 'components/demo-page';
-	import DemoSection from 'components/demo-section';
-	import DemoButton from 'components/demo-button';
-	import {Toast} from 'mov';
+	import DemoPage from 'components/demo-page'
+	import DemoSection from 'components/demo-section'
+	import DemoButton from 'components/demo-button'
+	import { Toast } from 'mona'
 
 	export default {
 		name: 'Toast',
@@ -31,13 +30,13 @@
 		components: {
 			DemoPage,
 			DemoSection,
-			DemoButton,
+			DemoButton
 		},
 
 		props: {},
 
-		data() {
-			return {};
+		data () {
+			return {}
 		},
 
 		computed: {},
@@ -45,45 +44,44 @@
 		watch: {},
 
 		methods: {
-			demo1() {
-				Toast.show('普通提示');
+			demo1 () {
+				Toast.show('普通提示')
 			},
-			demo2() {
+			demo2 () {
 				Toast.show({
-					message: '成功提示', type: 'success',
-				});
+					message: '成功提示', type: 'success'
+				})
 			},
-			demo3() {
+			demo3 () {
 				Toast.show({
-					message: '失败提示', type: 'error',
-				});
+					message: '失败提示', type: 'error'
+				})
 			},
-			demo4() {
+			demo4 () {
 				Toast.show({
-					message: '提示3s', duration: 3000,
-				});
+					message: '提示3s', duration: 3000
+				})
 			},
-			demo5() {
+			demo5 () {
 				Toast.show({
-					message: '带回调的提示', onHide() {
+					message: '带回调的提示', onHide () {
 						Toast.show({
-							message: '回调', type: 'error',
-						});
-					},
-				});
-			},
+							message: '回调', type: 'error'
+						})
+					}
+				})
+			}
 		},
 
 		filters: {},
 
-		created() {
+		created () {
 		},
 
-		mounted() {
-		},
-	};
+		mounted () {
+		}
+	}
 </script>
-
 
 <style lang="less" scoped>
 

@@ -50,12 +50,11 @@
 	</div>
 </template>
 
-
 <script type="text/ecmascript-6">
-	import DemoPage from 'components/demo-page';
-	import DemoSection from 'components/demo-section';
-	import DemoButton from 'components/demo-button';
-	import {Popup} from 'mov';
+	import DemoPage from 'components/demo-page'
+	import DemoSection from 'components/demo-section'
+	import DemoButton from 'components/demo-button'
+	import { Popup } from 'mona'
 
 	// TODO 没有左侧弹出
 
@@ -66,10 +65,10 @@
 			DemoPage,
 			DemoSection,
 			DemoButton,
-			Popup,
+			Popup
 		},
 
-		data() {
+		data () {
 			return {
 				visible: false,
 				animate: true,
@@ -78,41 +77,40 @@
 				demo2Visible: false,
 				demo3Visible: false,
 				demo4Visible: false,
-				demo5Visible: false,
-			};
+				demo5Visible: false
+			}
 		},
 
 		methods: {
-			demo1() {
-				this.demo1Visible = true;
+			demo1 () {
+				this.demo1Visible = true
 			},
 
-			demo2() {
-				this.demo2Visible = true;
+			demo2 () {
+				this.demo2Visible = true
 			},
 
-			demo3() {
-				this.demo3Visible = true;
+			demo3 () {
+				this.demo3Visible = true
 			},
 
-			demo4() {
-				this.demo4Visible = true;
+			demo4 () {
+				this.demo4Visible = true
 			},
 
-			demo5() {
-				this.demo5Visible = true;
+			demo5 () {
+				this.demo5Visible = true
 			},
-			hidePopup() {
-				this.demo1Visible = false;
-				this.demo2Visible = false;
-				this.demo3Visible = false;
-				this.demo4Visible = false;
-				this.demo5Visible = false;
-			},
-		},
-	};
+			hidePopup () {
+				this.demo1Visible = false
+				this.demo2Visible = false
+				this.demo3Visible = false
+				this.demo4Visible = false
+				this.demo5Visible = false
+			}
+		}
+	}
 </script>
-
 
 <style lang="less" scoped>
 

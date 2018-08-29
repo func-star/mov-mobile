@@ -2,8 +2,8 @@
 	<demo-page title="ListView - 列表" intro="支持瀑布流和手动下拉刷新" style="padding-bottom: 0">
 		<demo-section title="基础用法" intro="demo1">
 			<list-view class="list-view" :on-refresh="onRefresh" ref="listView" :on-scroll="onScroll"
-					   :on-infinite="onInfinite"
-					   :isEnd="isEnd">
+				:on-infinite="onInfinite"
+				:isEnd="isEnd">
 				<div class="list-view-group">
 					<div class="list-view-item flex-center-y" @click="toTop" v-for="(item, index) in list">
 						<div class="avatar r-circle"></div>
@@ -16,9 +16,9 @@
 </template>
 
 <script type="text/ecmascript-6">
-	import DemoPage from 'components/demo-page';
-	import DemoSection from 'components/demo-section';
-	import {ListView} from 'mov';
+	import DemoPage from 'components/demo-page'
+	import DemoSection from 'components/demo-section'
+	import { ListView } from 'mona'
 	// TODO 缺少toTop
 
 	export default {
@@ -26,16 +26,16 @@
 		components: {
 			DemoPage,
 			DemoSection,
-			ListView,
+			ListView
 		},
 
 		props: {},
 
-		data() {
+		data () {
 			return {
 				list: [],
-				isEnd: false,
-			};
+				isEnd: false
+			}
 		},
 
 		computed: {},
@@ -43,45 +43,45 @@
 		watch: {},
 
 		methods: {
-			init() {
-				this.getList();
+			init () {
+				this.getList()
 			},
-			onRefresh(done) {
+			onRefresh (done) {
 				setTimeout(() => {
-					this.getList();
-					this.isEnd = this.list.length >= 20;
-					done();
-				}, 2000);
+					this.getList()
+					this.isEnd = this.list.length >= 20
+					done()
+				}, 2000)
 			},
 
-			onInfinite(done) {
+			onInfinite (done) {
 				setTimeout(() => {
-					this.list = this.list.concat([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-					this.isEnd = this.list.length > 40;
-					done();
-				}, 1500);
+					this.list = this.list.concat([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+					this.isEnd = this.list.length > 40
+					done()
+				}, 1500)
 			},
-			onScroll(e) {
-				console.log(`scrollTop: ${e.scrollTop}`);
+			onScroll (e) {
+				console.log(`scrollTop: ${e.scrollTop}`)
 			},
-			getList() {
-				this.list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+			getList () {
+				this.list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 			},
-			toTop() {
-				ListView.toTop();
-			},
+			toTop () {
+				ListView.toTop()
+			}
 		},
 
 		filters: {},
 
-		created() {
-			this.init();
+		created () {
+			this.init()
 		},
 
-		mounted() {
+		mounted () {
 
-		},
-	};
+		}
+	}
 </script>
 
 <style lang="less">

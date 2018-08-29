@@ -9,12 +9,11 @@
 	</demo-page>
 </template>
 
-
 <script type="text/ecmascript-6">
-	import DemoPage from 'components/demo-page';
-	import DemoSection from 'components/demo-section';
-	import DemoButton from 'components/demo-button';
-	import ModalSelect from '../../../libsrc/modal-select/index.js';
+	import DemoPage from 'components/demo-page'
+	import DemoSection from 'components/demo-section'
+	import DemoButton from 'components/demo-button'
+	import { ModalSelect } from 'mona'
 
 	export default {
 		name: 'ModalSelect',
@@ -23,16 +22,16 @@
 			DemoPage,
 			DemoSection,
 			DemoButton,
-			ModalSelect,
+			ModalSelect
 		},
 
 		props: {},
 
-		data() {
+		data () {
 			return {
 				demo2Value: 2,
-				demo1Value: undefined,
-			};
+				demo1Value: undefined
+			}
 		},
 
 		computed: {},
@@ -40,54 +39,53 @@
 		watch: {},
 
 		methods: {
-			demo1() {
+			demo1 () {
 				ModalSelect.config({
 					source: [{
-						n: 'item - 1', v: 1,
+						n: 'item - 1', v: 1
 					}, {
-						n: 'item - 2', v: 2,
+						n: 'item - 2', v: 2
 					}, {
-						n: 'item - 3', v: 3,
+						n: 'item - 3', v: 3
 					}, {
-						n: 'item - 4', v: 4,
+						n: 'item - 4', v: 4
 					}, {
-						n: 'item - 5', v: 5,
+						n: 'item - 5', v: 5
 					}],
 					defaultValue: this.demo1Value,
 					nameKey: 'n', // 默认 name
 					valueKey: 'v', // 默认 value
 					onConfirm: (data) => {
-						console.log(data);
-						this.demo1Value = data.v;
-					},
-				});
+						console.log(data)
+						this.demo1Value = data.v
+					}
+				})
 			},
-			demo2() {
+			demo2 () {
 				ModalSelect.config({
 					source: [1, 2, 3, 4, 5, 6],
 					defaultValue: this.demo2Value,
 					isKV: false,
 					onConfirm: (data) => {
-						console.log(data);
-						this.demo2Value = data;
+						console.log(data)
+						this.demo2Value = data
 					},
 					onCancel: (type) => {
-						console.log(type);
-					},
-				});
-			},
+						console.log(type)
+					}
+				})
+			}
 		},
 
 		filters: {},
 
-		created() {
+		created () {
 		},
 
-		mounted() {
-		},
-	};
+		mounted () {
+		}
+	}
 </script>
-
 
 <style lang="less" scoped>
 

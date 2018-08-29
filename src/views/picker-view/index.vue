@@ -4,20 +4,20 @@
 	</div>
 </template>
 <script type="text/ecmascript-6">
-	import { PickerView } from 'mov';
-	import './index.less';
+	import { PickerView } from 'mona'
+	import './index.less'
 
 	export default {
 		components: {
-			PickerView,
+			PickerView
 		},
 
 		props: {},
 
 		data () {
 			return {
-				year: '2018年',
-			};
+				year: '2018年'
+			}
 		},
 
 		computed: {},
@@ -29,22 +29,22 @@
 
 			},
 			getValue (val) {
-				console.log(val);
-			},
+				console.log(val)
+			}
 		},
 
 		filters: {},
 
 		created () {
-			this.source = [];
+			this.source = []
 			for (let i = 0; i < 100; i++) {
-				this.source.push(2000 + i + '年');
+				this.source.push(2000 + i + '年')
 			}
 		},
 
 		mounted () {
-			this.init();
-		},
-	};
+			this.init()
+		}
+	}
 
 </script>

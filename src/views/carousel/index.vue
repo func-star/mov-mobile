@@ -55,14 +55,13 @@
 	</demo-page>
 </template>
 
-
 <script type="text/ecmascript-6">
-	import DemoPage from 'components/demo-page';
-	import DemoSection from 'components/demo-section';
-	import DemoButton from 'components/demo-button';
-	import {Carousel} from 'mov';
+	import DemoPage from 'components/demo-page'
+	import DemoSection from 'components/demo-section'
+	import DemoButton from 'components/demo-button'
+	import { Carousel } from 'mona'
 
-	const CarouselItem = Carousel.Item;
+	const CarouselItem = Carousel.Item
 
 	export default {
 		name: 'CarouselDemo',
@@ -77,8 +76,8 @@
 
 		props: {},
 
-		data() {
-			return {};
+		data () {
+			return {}
 		},
 
 		computed: {},
@@ -86,21 +85,20 @@
 		watch: {},
 
 		methods: {
-			afterChange(index) {
-				console.log(index);
+			afterChange (index) {
+				console.log(index)
 			}
 		},
 
 		filters: {},
 
-		created() {
+		created () {
 		},
 
-		mounted() {
-		},
-	};
+		mounted () {
+		}
+	}
 </script>
-
 
 <style lang="less" scoped>
 
