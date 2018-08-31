@@ -19,12 +19,6 @@
 ### 依赖
 - [mona-events](https://www.npmjs.com/package/mona-events)
 
-## 联系我
-
-> 微信：
-func-star (599321378) 
-Miriring (497656216)
-
 ## 安装
 
 ### NPM
@@ -101,9 +95,14 @@ import { Row, Col } from 'mona';
 ```
 
 
+## 联系我
+
+> 微信：
+func-star (599321378) 
+Miriring (497656216)
+
+
 ### TODO
 
-
-* ListView 修改成hammer
 * DatePciker和DatePickerRange优化
 
