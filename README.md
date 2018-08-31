@@ -1,6 +1,12 @@
 # 一款让你感到幸福的 Vue 组件库
 
-✨✨这是 Mona 系列的 Vue 实现，服务与移动端 H5 产品。
+✨✨这是 Mona 系列的 Vue 实现，服务于移动端 H5 产品。
+
+[![npm](https://img.shields.io/npm/v/mov-mobile.svg?style=flat-square)](https://www.npmjs.com/package/mov-mobile) [![npm](https://img.shields.io/npm/dt/mov-mobile.svg?style=flat-square)](https://www.npmjs.com/package/mov-mobile)
+
+- [主页](http://home.mov.monajs.cn)
+
+- [手机访问](http://mov.monajs.cn)
 
 ## 大致介绍
 
@@ -10,13 +16,14 @@
 
 可以满足你各种姿势，给你提供各种体位。
 
-## 组件库目前由和func-star和 Miriring 共同维护
+### 依赖
+- [mona-events](https://www.npmjs.com/package/mona-events)
 
 ## 联系我
 
-> 微信：func-star (599321378) Miriring (497656216)
-
-> github地址： func-star (https://github.com/func-star) Miriring (https://github.com/Miriring)
+> 微信：
+func-star (599321378) 
+Miriring (497656216)
 
 ## 安装
 
