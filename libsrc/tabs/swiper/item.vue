@@ -8,6 +8,9 @@ import Tabs from '../tabs.vue';
 import TabsCtrl from '../ctrl';
 
 export default {
+	props: {
+	    tabsKey: Number
+	},
     data() {
         return {
             itemWidth: 0,
@@ -24,7 +27,7 @@ export default {
     },
     created() {
         console.log(`设置tabsItem的唯一key${this.key}`);
-        TabsCtrl.setTabItemKey(this.key);
+        TabsCtrl.setTabItemKey(this.tabsKey, this.key);
     },
     beforeDestroy() {
         TabsCtrl.off('tabsIndexChange');

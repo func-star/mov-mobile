@@ -56,6 +56,7 @@
             return {
                 currentIndex: 0,
                 childDomList: [],
+				tabsKey: this._uid,
                 keysList: new Set(), // 存储tabsItem已经可以展示的项
             };
         },
@@ -65,12 +66,15 @@
         mounted() {
             this.init();
         },
+		destroyed() {
+			TabsCtrl.destroyItemList(this.tabsKey);
+		},
         methods: {
             init() {
                 this.childDomList = this.$slots.default.filter(v => {
                     return v.tag;
                 });  // item个数
-                this.keysList.add(TabsCtrl.getTabsItemKey()[this.currentIndex]);
+                this.keysList.add(TabsCtrl.getTabsItemKey(this.tabsKey)[this.currentIndex]);
             },
             changeIndex(index) {
                 if(index === this.currentIndex) {
@@ -81,7 +85,7 @@
             },
             updateIndex(index) {
                 this.currentIndex = index;
-                this.keysList.add(TabsCtrl.getTabsItemKey()[this.currentIndex]);
+                this.keysList.add(TabsCtrl.getTabsItemKey(this.tabsKey)[this.currentIndex]);
                 TabsCtrl.emit('tabsIndexChange', this.keysList);
                 this.afterChange && this.afterChange(index);
             },
