@@ -19,7 +19,7 @@
 <script type="text/ecmascript-6">
 	import DemoPage from 'components/demo-page'
 	import DemoSection from 'components/demo-section'
-	import {ListView} from 'mona'
+	import { ListView } from 'mona'
 	// TODO 缺少toTop
 
 	export default {
@@ -63,7 +63,7 @@
 				}, 1500)
 			},
 			onScroll (e) {
-//				console.log(`scrollTop: ${e.scrollTop}`)
+				console.log(`scrollTop: ${e.scrollTop}`)
 			},
 			getList () {
 				this.list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
