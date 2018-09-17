@@ -6,6 +6,7 @@ var serverConf = {
 	inline: true,
 	proxy: {},
 	historyApiFallback: true,
+	disableHostCheck: true,
 	stats: {
 		colors: true,
 	},
