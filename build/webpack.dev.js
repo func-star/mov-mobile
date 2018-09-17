@@ -49,10 +49,10 @@ config.plugins = (config.plugins || []).concat([
 		filename: 'index.html',
 		template: 'src/index.html',
 	}),
-	new CopyWebpackPlugin([{
-		from: 'src/static',
-		to: 'goods',
-	}]),
+	// new CopyWebpackPlugin([{
+	// 	from: 'src/static',
+	// 	to: 'goods',
+	// }]),
 	
 	new webpack.DefinePlugin({
 		DEBUG: true,
