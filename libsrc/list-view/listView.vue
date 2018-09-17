@@ -98,7 +98,7 @@ export default {
 	    panstart(e) {
 		    const angleAbs = Math.abs(e.angle)
 		    this.startScrollTop = this.container.$el.scrollTop || 0
-		    if (e.velocityY > 0 && this.startScrollTop <= 0) {
+		    if (e.velocityY > 0 && this.startScrollTop <= 0 && this.enableRefresh) {
 			    e.preventDefault()
 		    }
 		    if (angleAbs > 45 && angleAbs < 135) {
@@ -110,10 +110,9 @@ export default {
 
 	    panmove(e) {
 	        const diff = e.center.y - this.startY - this.startScrollTop
-	        if (diff > 0) {
+	        if (diff > 0 && this.enableRefresh) {
 		        e.preventDefault()
 	        }
-
 	        if (!this.enableRefresh || this.container.$el.scrollTop > 0 || !this.touching) {
 		        return
 	        }

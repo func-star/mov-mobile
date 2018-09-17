@@ -1,9 +1,10 @@
 <template>
 	<demo-page title="ListView - 列表" intro="支持瀑布流和手动下拉刷新" style="padding-bottom: 0">
 		<demo-section title="基础用法" intro="demo1">
+			<div style="height: 200px;width: 100%;background-color: black"></div>
 			<list-view class="list-view" :on-refresh="onRefresh" ref="listView" :on-scroll="onScroll"
-				:on-infinite="onInfinite"
-				:isEnd="isEnd">
+					   :on-infinite="onInfinite"
+					   :isEnd="isEnd">
 				<div class="list-view-group">
 					<div class="list-view-item flex-center-y" @click="toTop" v-for="(item, index) in list">
 						<div class="avatar r-circle"></div>
@@ -18,7 +19,7 @@
 <script type="text/ecmascript-6">
 	import DemoPage from 'components/demo-page'
 	import DemoSection from 'components/demo-section'
-	import { ListView } from 'mona'
+	import {ListView} from 'mona'
 	// TODO 缺少toTop
 
 	export default {
@@ -62,7 +63,7 @@
 				}, 1500)
 			},
 			onScroll (e) {
-				console.log(`scrollTop: ${e.scrollTop}`)
+//				console.log(`scrollTop: ${e.scrollTop}`)
 			},
 			getList () {
 				this.list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]

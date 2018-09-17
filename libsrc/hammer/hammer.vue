@@ -1,5 +1,5 @@
 <template>
-	<div ref="hammer" class="mona-hammer full">
+	<div ref="hammer" class="mona-hammer fll">
 		<slot></slot>
 	</div>
 </template>
@@ -106,6 +106,7 @@
 				this.currentInfo = Object.assign({}, info)
 
 				Object.assign(e, info)
+//				console.log(e);
 			},
 
 			touchStart (e) {
