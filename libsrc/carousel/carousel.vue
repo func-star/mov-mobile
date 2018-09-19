@@ -316,9 +316,7 @@
 
 			moveOption(fn) {
 				this.translateX = -1 * this.itemWidth * this.currentIndex + this.gapWidth; // 偏移量
-				this.$nextTick(() => {
-					fn && fn();
-				});
+				fn && fn();
 				Tool.css(this.wrap, {
 					'will-change': 'transform',
 					transform: 'translateX(' + this.translateX + 'px)',
